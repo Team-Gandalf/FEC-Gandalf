@@ -1,4 +1,5 @@
 const faker = require('faker');
+const Game = require('./index.js');
 
 const categories = ['event', 'announcement'];
 var randomIndex =  Math.floor(Math.random() * 2);
@@ -15,7 +16,7 @@ for (var i = 0; i < commentCount; i++) {
 }
 
  var createFakeData = () => {
-  let data = {
+  var data = {
     name: faker.lorem.words(),
     image: faker.image.image(),
     title: faker.lorem.sentence(),
@@ -28,9 +29,14 @@ for (var i = 0; i < commentCount; i++) {
     url: faker.internet.url(),
     rateUp: rate,
     rateDown: !rate
-  }
-
+  };
   return data;
 }
 
-module.exports.createFakeData = createFakeData;
+for (var i = 0; i < 100; i++) {
+  Game.create(createFakeData(), (err, data) => {
+    if (err) {
+      console.error('ERROR: ', err);
+    }
+  });
+}

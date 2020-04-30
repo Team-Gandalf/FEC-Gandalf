@@ -3,8 +3,6 @@ const Schema = mongoose.Schema;
 mongoose.connect('mongodb://localhost:27017/fec', {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 
-var faker = require('./faker.js');
-
 db.on('error', (err) => {
   console.error('Connection Failed: ', err);
 })
@@ -14,7 +12,7 @@ db.once('open', () => {
 })
 
 var commentSchema = new Schema({
-  username: {type: String, unique: true},
+  username: String,
   postDate: Date,
   commentBody: String
 })
@@ -36,9 +34,4 @@ var gameSchema = new Schema({
 
 var Game = mongoose.model('games', gameSchema);
 
-for (var i = 0; i < 2; i++) {
-  Game.create(faker.createFakeData(), (err, data) => {
-    if (err) console.error('ERROR: ', err);
-    console.log(data);
-  });
-};
+module.exports = Game;
