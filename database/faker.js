@@ -1,13 +1,25 @@
 const faker = require('faker');
-const Game = require('./index.js');
+const db = require('./index.js');
 
+const rate = faker.random.boolean();
+
+const announcementsCount = Math.floor(Math.random() * 10);
+const announcements = [];
 const categories = ['event', 'announcement'];
-var randomIndex =  Math.floor(Math.random() * 2);
-var commentCount = Math.floor(Math.random() * 50);
-var rate = faker.random.boolean();
+for (let i = 0; i < announcementsCount; i += 1) {
+  let randomIndex = Math.floor(Math.random() * 2);
+  announcements.push({
+    title: faker.lorem.sentence(),
+    postDate: faker.date.recent(),
+    body: faker.lorem.paragraphs(),
+    category: categories[randomIndex],
+    url: faker.internet.url(),
+  });
+}
 
-var comments = [];
-for (var i = 0; i < commentCount; i++) {
+const commentCount = Math.floor(Math.random() * 50);
+const comments = [];
+for (let i = 0; i < commentCount; i += 1) {
   comments.push({
     username: faker.internet.userName(),
     postDate: faker.date.past(),
@@ -15,27 +27,26 @@ for (var i = 0; i < commentCount; i++) {
   });
 }
 
- var createFakeData = () => {
-  var data = {
+const createFakeData = () => {
+  const data = {
     name: faker.lorem.words(),
     image: faker.image.image(),
     title: faker.lorem.sentence(),
-    recent: faker.date.recent(),
-    body: faker.lorem.paragraphs(),
-    category: categories[randomIndex],
     likes: Math.floor(Math.random() * 100),
-    commentCount: commentCount,
-    comments: comments,
+    commentCount,
+    announcements,
+    comments,
     url: faker.internet.url(),
     rateUp: rate,
-    rateDown: !rate
+    rateDown: !rate,
   };
   return data;
-}
+};
 
-for (var i = 0; i < 100; i++) {
-  Game.create(createFakeData(), (err, data) => {
+for (let i = 0; i < 1; i += 1) {
+  db.Game.create(createFakeData(), (err) => {
     if (err) {
+      // eslint-disable-next-line no-console
       console.error('ERROR: ', err);
     }
   });

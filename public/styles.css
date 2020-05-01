@@ -15,7 +15,7 @@ body {
 #Announcements {
   display: grid;
   height: 35rem;
-  width: 80%;
+  width: 40%;
   font-size: 2em;
   color: ghostwhite;
   border: none;
@@ -35,7 +35,6 @@ body {
   background: #2c4361;
   grid-area: thumbnail;
   grid-row: 1 / span 3;
-  height: 3e;
 }
 
 #mini-title {
