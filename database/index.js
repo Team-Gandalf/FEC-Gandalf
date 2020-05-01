@@ -14,21 +14,28 @@ db.once('open', () => {
   console.log('Successfully connected to MongoDB');
 });
 
+const announcementsSchema = new Schema({
+  title: String,
+  postDate: Date,
+  body: String,
+  category: String,
+  url: String,
+});
+
 const commentSchema = new Schema({
   username: String,
   postDate: Date,
   commentBody: String,
 });
 
+
 const gameSchema = new Schema({
   name: { type: String, unique: true },
   image: String,
   title: String,
-  recent: Date,
-  body: String,
-  category: String,
   likes: Number,
   commentCount: Number,
+  announcements: [announcementsSchema],
   comments: [commentSchema],
   url: String,
   rateUp: Boolean,
@@ -37,4 +44,16 @@ const gameSchema = new Schema({
 
 const Game = mongoose.model('games', gameSchema);
 
-module.exports = Game;
+module.exports = {
+  Game,
+  getAllGames: (callback) => {
+    module.exports.Game.find((err, data) => {
+      if (err) {
+        // eslint-disable-next-line no-console
+        callback(err);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
+};
