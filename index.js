@@ -10,9 +10,10 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-app.get('/game', (req, res) => {
+app.get('/allGames', (req, res) => {
   db.getAllGames((err, data) => {
     if (err) {
+      // eslint-disable-next-line no-console
       console.error('ERROR: ', err);
     } else {
       res.send(data);
