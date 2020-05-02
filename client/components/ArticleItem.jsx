@@ -11,7 +11,7 @@ const ArticleItem = (props) => {
         TITLE OF THE ARTICLE
       </div>
       <div className="article-item-body">
-        ARTICLE BODY
+        It's here. Half-Life: Alyx, Valve's long-awaited return to the Half-Life series, is NOW AVAILABLE to play. Compatible with all PC-based VR headsets, the game has been designed from the ground up for virtual reality. Half-Life: Alyx can be purchased from the Steam store and is available for download and play immediately.
       </div>
       <div className="article-item-interactions">
         <div id="interactions-inner">
@@ -22,16 +22,24 @@ const ArticleItem = (props) => {
                 1,111
                 </div>
             </div>
-            <div id="rate-up">
-              <img id="discussion-thumbs-up" src="../img/discussion-thumbs-up.png" alt="" />
-              &nbsp;Rate Up
-            </div>
-            <div id="rate-down">
-              <img id="discussion-thumbs-down" src="../img/discussion-thumbs-up.png" alt="" />
+            <div id="user-rating">
+              <div id="rate-up">
+                <img id="discussion-thumbs-up" src="../img/discussion-thumbs-up.png" alt="" />
+                &nbsp;Rate Up
+              </div>
+              <div id="rate-down">
+                <img id="discussion-thumbs-down" src="../img/discussion-thumbs-up.png" alt="" />
+              </div>
             </div>
           </div>
-          <div id="interactions-comments">COMMENTS</div>
-          <div id="interactions-share">SHARE</div>
+          <div id="interactions-comments">
+            <img src="../img/blue-bubble.png" alt="" className="blue-bubble" /><span id="comment-count">111</span>
+            <span id="discuss-text">Discuss</span>
+          </div>
+          <div id="interactions-share">
+            <img src="../img/share-logo.png" alt="" id="share-icon" />
+            <span id="share-text">Share</span>
+          </div>
         </div>
       </div>
     </div>

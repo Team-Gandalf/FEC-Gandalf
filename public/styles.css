@@ -137,11 +137,13 @@ div#article-item {
   display: grid;
   grid-area: title;
   grid-row: 4 / span 3;
-  align-items: center;
+  align-items: baseline;
+  text-align: left;
+  padding: 2em;
 }
 
 .article-item-interactions {
-  background: #383b41;
+  background: #3d4148;
   display: flex;
   flex-flow: row;
   grid-area: title;
@@ -181,8 +183,11 @@ div#interactions-share {
   height: 85%;
   width: 15%;
   align-items: center;
-  justify-content: center;
-  margin-left: 5em;
+  justify-content: space-evenly;
+  margin-left: 3em;
+  margin-right: 2em;
+  cursor: pointer;
+  border: 1px solid #2b598ab5;
 }
 
 div#interaction-ratings {
@@ -196,6 +201,7 @@ div#interaction-ratings {
   font-weight: 700;
   color: #4d9bec;
   margin-left: 1em;
+  border: 1px solid #2b598ab5;
 }
 
 div#interactions-comments {
@@ -203,9 +209,12 @@ div#interactions-comments {
   background: #2b2d33;
   display: inline-flex;
   height: 85%;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 25%;
+  font-size: 2em;
+  font-weight: 700;
   margin-left: 1em;
+  border: 1px solid #2b598ab5;
 }
 
 img#blue-thumb {
@@ -226,16 +235,22 @@ div#count {
   transform: rotate(180deg);
 }
 
-#rate-up {
+#rate-up,
+#discuss-text,
+#share-text {
   color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: .9em;
   font-weight: 400;
-  /* background: #3d4450; */
+  cursor: pointer;
   height: 50%;
-  box-shadow: 0px 0px 5px #00000033;
+  text-shadow: 2px 2px 5px #0c0707;
+}
+
+#share-text {
+  font-size: 1.5em;
 }
 
 div#rate-count {
@@ -248,7 +263,31 @@ div#rate-down {
   justify-content: center;
   align-items: center;
   font-size: .9em;
-  /* background: #3d4450; */
   height: 50%;
-  box-shadow: 0px 0px 5px #00000033;
+  text-shadow: 2px 2px 5px #0c0707;
+}
+
+div#user-rating {
+  display: inline-flex;
+  width: 60%;
+  justify-content: space-evenly;
+}
+
+#discussion-thumbs-down {
+  cursor: pointer;
+}
+
+img.blue-bubble {
+  display: inline-flex;
+  height: 1.5em;
+}
+
+#comment-count {
+  font-size: 1em;
+  color: #4d9bec;
+}
+
+#share-icon{
+  display: inline-flex;
+  height: 3em;
 }

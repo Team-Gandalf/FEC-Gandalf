@@ -12,7 +12,6 @@ const Articles = (props) => {
           </svg>
         </div>
         <ArticleItem />
-        <ArticleItem />
       </div>
     </div>
   );
