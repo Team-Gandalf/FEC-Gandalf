@@ -9,7 +9,11 @@ const Announcements = (props) => {
   const [allGames, setAllGames] = useState([]);
 
   const renderOverlay = () => {
-    setHover(!hover);
+    setHover(true);
+  };
+
+  const unMountOverlay = () => {
+    setHover(false);
   };
 
   const getAllGames = () => {
@@ -33,7 +37,7 @@ const Announcements = (props) => {
   }
 
   return (
-    <div id="main-container" onMouseEnter={renderOverlay} onMouseLeave={renderOverlay}>
+    <div id="main-container" onMouseOver={renderOverlay} onFocus={renderOverlay} onMouseEnter={renderOverlay} onMouseLeave={unMountOverlay}>
       <div id="thumbnail">THUMBNAIL SECTION</div>
       <div id="mini-title">
         { allGames[0].title }
