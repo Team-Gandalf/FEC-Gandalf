@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Overlay from './Overlay.jsx';
 
-const Announcements = () => {
+const Announcements = (props) => {
   const [hover, setHover] = useState(false);
   const [allGames, setAllGames] = useState([]);
 
@@ -36,11 +36,11 @@ const Announcements = () => {
     <div id="main-container" onMouseEnter={renderOverlay} onMouseLeave={renderOverlay}>
       <div id="thumbnail">THUMBNAIL SECTION</div>
       <div id="mini-title">
-        {allGames[0].title}
+        { allGames[0].title }
         <br />
         <span className="summary-date">{allGames[0].announcements[0].postDate}</span>
       </div>
-      {(hover) ? <Overlay game={allGames[0]} /> : null}
+      { (hover) ? <Overlay game={allGames[0]} toggleArticles={props.toggleArticles} /> : null }
     </div>
   );
 };

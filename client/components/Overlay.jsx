@@ -3,7 +3,7 @@ import React from 'react';
 const Overlay = (props) => {
 
   const loadPage = () => {
-    console.log('Action: Load Page!');
+    props.toggleArticles();
   };
 
   return (
