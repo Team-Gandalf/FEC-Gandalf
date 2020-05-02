@@ -91,4 +91,58 @@ body {
   z-index: 100;
   margin: 0 auto;
   text-align: center;
+  overflow: scroll;
+}
+
+div#article-item {
+  width: 44vw;
+  background: #26292e;
+  margin: 0 auto;
+  height: 34vw;
+  display: grid;
+  grid-template-areas:
+      "thumbnail"
+      "thumbnail"
+      "title"
+      "body"
+      "body"
+      "body"
+      "interaction"
+      "interaction";
+}
+
+.article-item-thumbnail {
+  display: grid;
+  grid-area: thumbnail;
+  grid-row: 1 / span 2;
+  background: green;
+  align-items: center;
+}
+
+.article-item-title {
+  display: grid;
+  grid-area: title;
+  grid-row: 3 / span 1;
+  background: #8e8e00;
+  align-items: center;
+}
+
+.article-item-body {
+  display: grid;
+  grid-area: title;
+  grid-row: 4 / span 3;
+  background: #2d4b65;
+  align-items: center;
+}
+
+.article-item-interactions {
+  display: grid;
+  grid-area: title;
+  grid-row: 7 / span 2;
+  background: #276d10;
+  align-items: center;
+}
+
+.article-item-gaps {
+  height: 3rem;
 }

@@ -1,8 +1,13 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import ArticleItem from './ArticleItem.jsx';
 
 const Articles = (props) => {
   return (
-    <div id="articles" onClick={props.toggleArticles}> THIS WHERE THE ARTICLE WILL GO</div>
+    <div id="articles" onClick={props.toggleArticles}>
+      <ArticleItem />
+      <div className="article-item-gaps"><br /></div>
+    </div>
   );
 };
 
