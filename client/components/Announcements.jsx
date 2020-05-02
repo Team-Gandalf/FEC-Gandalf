@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Overlay from './Overlay.jsx';
@@ -35,7 +35,11 @@ const Announcements = () => {
   return (
     <div id="main-container" onMouseEnter={renderOverlay} onMouseLeave={renderOverlay}>
       <div id="thumbnail">THUMBNAIL SECTION</div>
-      <div id="mini-title">{allGames[0].title}</div>
+      <div id="mini-title">
+        {allGames[0].title}
+        <br />
+        <span className="summary-date">{allGames[0].announcements[0].postDate}</span>
+      </div>
       {(hover) ? <Overlay game={allGames[0]} /> : null}
     </div>
   );

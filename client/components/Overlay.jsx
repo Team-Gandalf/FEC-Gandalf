@@ -8,8 +8,10 @@ const Overlay = (props) => {
 
   return (
     <div id="overlay" onClick={loadPage}>
+      <span className="category">{props.game.announcements[0].category}</span>
+      <br />
+      <br />
       {props.game.announcements[0].body}
-      {/* This section will overlay the main announcement component when hovering over the main-container area */}
     </div>
   );
 };
