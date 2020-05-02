@@ -1,4 +1,4 @@
-{
+* {
   margin: 0;
   padding: 0;
 }
@@ -13,9 +13,9 @@ body {
 }
 
 #Announcements {
-  display: grid;
+  display: inline-grid;
   height: 35rem;
-  width: 40%;
+  width: 48rem;
   font-size: 2em;
   color: ghostwhite;
   border: none;
@@ -45,19 +45,46 @@ body {
 }
 
 #overlay {
-  background: #42454c;
+  background: #14171fd4;
   font-size: 0.5em;
   position: absolute;
   top: 0;
   left: 0;
   padding-top: 40px;
-  z-index: 100;
+  z-index: 50;
   overflow: hidden;
   width: 100%;
   height: 100%;
-  opacity: 0.65;
   color: white;
   box-sizing: border-box;
   padding: 2rem;
   cursor: pointer;
+  animation: overlayFade 0.5s ease  0s 1  normal  none;
+}
+
+.summary-date {
+  font-size: .5em;
+}
+
+.category {
+  text-transform: uppercase;
+}
+
+
+@keyframes overlayFade {
+  0.0%{
+      opacity: 0;
+  }
+  100%{
+      opacity: 1;
+  }
+}
+
+#articles {
+  background: green;
+  color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }

@@ -1,16 +1,19 @@
 import React from 'react';
 
-const Overlay  = (props) => {
+const Overlay = (props) => {
 
-  const loadPage = (props) => {
-    console.log('Action: Load Page!');
-  }
+  const loadPage = () => {
+    props.toggleArticles();
+  };
 
   return (
     <div id="overlay" onClick={loadPage}>
-      This section will overlay the main announcement component when hovering over the main-container area
+      <span className="category">{props.game.announcements[0].category}</span>
+      <br />
+      <br />
+      {props.game.announcements[0].body}
     </div>
   );
-}
+};
 
 export default Overlay;
