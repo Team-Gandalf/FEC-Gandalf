@@ -15,8 +15,8 @@ const App = () => {
       <div id="Announcements">
         <Announcements toggleArticles={toggleArticles} />
       </div>
-      <div id="Articles">
-        {(showArticles) ? <Articles /> : null}
+      <div id="article-modal">
+        {(showArticles) ? <Articles toggleArticles={toggleArticles} /> : null}
       </div>
     </div>
   );
