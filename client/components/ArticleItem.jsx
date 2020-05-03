@@ -1,17 +1,19 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
 const ArticleItem = (props) => {
-
+const {announcement} = props;
   return (
     <div id="article-item">
-      <div className="article-item-thumbnail">
-        THUMBNAIL
+      {console.log(announcement)}
+      <div className="article-item-thumbnail-container">
+        <img alt="thumbnail" src={announcement.thumbnailUrl} className="article-item-thumbnail" />
       </div>
       <div className="article-item-title">
-        TITLE OF THE ARTICLE
+        <span className="announcement-title">{announcement.title}</span>
       </div>
       <div className="article-item-body">
-        It's here. Half-Life: Alyx, Valve's long-awaited return to the Half-Life series, is NOW AVAILABLE to play. Compatible with all PC-based VR headsets, the game has been designed from the ground up for virtual reality. Half-Life: Alyx can be purchased from the Steam store and is available for download and play immediately.
+        {announcement.body}
       </div>
       <div className="article-item-interactions">
         <div id="interactions-inner">
