@@ -14,8 +14,8 @@ body {
 
 #Announcements {
   display: inline-grid;
-  height: 35rem;
-  width: 48rem;
+  height: 35vw;
+  width: 40vw;
   font-size: 2em;
   color: ghostwhite;
   border: none;
@@ -95,15 +95,16 @@ body {
 }
 
 div#article-item-area {
-  width: 44vw;
+  width: 65vw;
   margin: 0 auto;
 }
 
 div#article-item {
   /* background: #26292e; */
-  height: 34vw;
+  height: 50vw;
   display: grid;
   grid-template-areas:
+      "thumbnail"
       "thumbnail"
       "thumbnail"
       "title"
@@ -116,37 +117,49 @@ div#article-item {
   color: #ffffff;
 }
 
-.article-item-thumbnail {
+.article-item-thumbnail-container {
   display: grid;
   grid-area: thumbnail;
-  grid-row: 1 / span 2;
-  background: green;
+  grid-row: 1 / span 3;
   align-items: center;
 }
 
 .article-item-title {
+  align-items: center;
+  background: #37393f;
   display: grid;
   grid-area: title;
-  grid-row: 3 / span 1;
-  background: #8e8e00;
-  align-items: center;
+  grid-row: 4 / span 1;
+  text-align: left;
+  padding-left: 3.5em;
+  box-shadow: 0px 0px 5px #1d1e21;
+  z-index: 10;
 }
 
 .article-item-body {
+  background: #37393f;
   display: grid;
   grid-area: title;
-  grid-row: 4 / span 3;
-  background: #2d4b65;
-  align-items: center;
+  grid-row: 5 / span 3;
+  align-items: baseline;
+  text-align: left;
+  padding: 2em;
+  font-size: 1.75em;
+  box-shadow: 0px 0px 5px #1d1e21;
+  z-index: 9;
 }
 
 .article-item-interactions {
-  display: grid;
+  background: #3d4148;
+  display: flex;
+  flex-flow: row;
   grid-area: title;
-  grid-row: 7 / span 2;
-  background: #276d10;
+  justify-content: flex-start;
+  grid-row: 8 / span 2;
   align-items: center;
   height: 75%;
+  z-index: 11;
+  box-shadow: 0px 0px 5px #1d1e21;
 }
 
 circle {
@@ -155,9 +168,146 @@ circle {
 }
 
 #scroll-buttons {
+  display: none;
   position: fixed;
   top: 16em;
   width: 88%;
   margin-right: auto;
   z-index: 150;
+}
+
+div#interactions-inner {
+  display: inline-flex;
+  flex-flow: row;
+  box-sizing: content-box;
+  height: 60%;
+  width: 100%;
+  align-items: center;
+}
+
+div#interactions-share {
+  display: inline-flex;
+  flex-flow: row;
+  background: #2b2d33;
+  height: 85%;
+  width: 15%;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 3em;
+  margin-right: 2em;
+  cursor: pointer;
+  border: 1px solid #2b598ab5;
+}
+
+div#interaction-ratings {
+  align-items: center;
+  background: #2b2d33;
+  display: inline-flex;
+  height: 85%;
+  justify-content: space-evenly;
+  width: 45%;
+  font-size: 2em;
+  font-weight: 700;
+  color: #4d9bec;
+  margin-left: 1em;
+  border: 1px solid #2b598ab5;
+}
+
+div#interactions-comments {
+  align-items: center;
+  background: #2b2d33;
+  display: inline-flex;
+  height: 85%;
+  justify-content: space-evenly;
+  width: 25%;
+  font-size: 2em;
+  font-weight: 700;
+  margin-left: 1em;
+  border: 1px solid #2b598ab5;
+}
+
+img#blue-thumb {
+  display: inline-flex;
+  height: 1.5em;
+}
+
+div#count {
+  margin-left: 5%;
+}
+
+#discussion-thumbs-up {
+  height: 1.2em;
+}
+
+#discussion-thumbs-down {
+  height: 1.2em;
+  transform: rotate(180deg);
+}
+
+#rate-up,
+#discuss-text,
+#share-text {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .9em;
+  font-weight: 400;
+  cursor: pointer;
+  height: 50%;
+  text-shadow: 2px 2px 5px #0c0707;
+}
+
+#share-text {
+  font-size: 1.5em;
+}
+
+div#rate-count {
+  display: flex;
+  align-items: center;
+}
+
+div#rate-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .9em;
+  height: 50%;
+  text-shadow: 2px 2px 5px #0c0707;
+}
+
+div#user-rating {
+  display: inline-flex;
+  width: 60%;
+  justify-content: space-evenly;
+}
+
+#discussion-thumbs-down {
+  cursor: pointer;
+}
+
+img.blue-bubble {
+  display: inline-flex;
+  height: 1.5em;
+}
+
+#comment-count {
+  font-size: 1em;
+  color: #4d9bec;
+}
+
+#share-icon{
+  display: inline-flex;
+  height: 3em;
+}
+
+span.announcement-title {
+  font-size: 3em;
+}
+
+img.article-item-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
