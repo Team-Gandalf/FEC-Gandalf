@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 const Overlay = (props) => {
+
+  const { category } = props.game.announcements[0];
 
   const loadPage = () => {
     props.toggleArticles();
@@ -8,7 +11,7 @@ const Overlay = (props) => {
 
   return (
     <div id="overlay" onClick={loadPage}>
-      <span className="category">{props.game.announcements[0].category}</span>
+      <span className="category">{category}</span>
       <br />
       <br />
       {props.game.announcements[0].body}
