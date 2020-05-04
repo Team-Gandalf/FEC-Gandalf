@@ -10,9 +10,11 @@ const {announcement} = props;
         <img alt="thumbnail" src={announcement.thumbnailUrl} className="article-item-thumbnail" />
       </div>
       <div className="article-item-title">
+      <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background-title" />
         <span className="announcement-title">{announcement.title}</span>
       </div>
       <div className="article-item-body">
+        <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" />
         {announcement.body}
       </div>
       <div className="article-item-interactions">

@@ -19,6 +19,7 @@ body {
   font-size: 2em;
   color: ghostwhite;
   border: none;
+  box-shadow: -1px 1px 0.3em black;
 }
 
 #main-container {
@@ -111,10 +112,11 @@ div#article-item {
       "body"
       "body"
       "body"
-      "interaction"
-      "interaction";
+      "interactions"
+      "interactions";
   font-size: 0.5em;
   color: #ffffff;
+  padding-top: 3rem;
 }
 
 .article-item-thumbnail-container {
@@ -134,12 +136,14 @@ div#article-item {
   padding-left: 3.5em;
   box-shadow: 0px 0px 5px #1d1e21;
   z-index: 10;
+  overflow: hidden;
+  position: relative;
 }
 
 .article-item-body {
   background: #37393f;
   display: grid;
-  grid-area: title;
+  grid-area: body;
   grid-row: 5 / span 3;
   align-items: baseline;
   text-align: left;
@@ -147,13 +151,15 @@ div#article-item {
   font-size: 1.75em;
   box-shadow: 0px 0px 5px #1d1e21;
   z-index: 9;
+  position: relative;
+  overflow: hidden;
 }
 
 .article-item-interactions {
   background: #3d4148;
   display: flex;
   flex-flow: row;
-  grid-area: title;
+  grid-area: interactions;
   justify-content: flex-start;
   grid-row: 8 / span 2;
   align-items: center;
@@ -310,4 +316,22 @@ img.article-item-thumbnail {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+img.blur-background {
+  filter: blur(5em);
+  object-fit: cover;
+  position: absolute;
+  z-index: -10;
+  width: 100%;
+}
+
+img.blur-background-title {
+  filter: blur(5em);
+  object-fit: cover;
+  position: absolute;
+  z-index: -5;
+  width: 100%;
+  height: 5rem;
+  transform: scaleX(-1);
 }
