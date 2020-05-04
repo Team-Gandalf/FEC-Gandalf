@@ -70,9 +70,13 @@ const Announcements = (props) => {
 
   return (
     <div id="main-container" onMouseOver={renderOverlay} onFocus={renderOverlay} onMouseEnter={renderOverlay} onMouseLeave={unMountOverlay}>
-      <div id="thumbnail">THUMBNAIL SECTION</div>
+      <div id="thumbnail">
+        <img src={announcement.thumbnailUrl} alt="" id="mini-view-thumbnail" />
+      </div>
       <div id="mini-title">
-        { allGames[0].title }
+        <span id="mini-title-text">
+          { allGames[0].title }
+        </span>
         <br />
         <span className="summary-date">{parseDate(announcement.postDate)}</span>
       </div>
