@@ -2,15 +2,50 @@
 import React, { useState } from 'react';
 
 const ArticleItem = (props) => {
-const {announcement} = props;
+  const { announcement } = props;
+
+  const weekdays = {
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+    7: 'Sunday',
+  };
+
+  const months = {
+    1: 'January',
+    2: 'February',
+    3: 'March',
+    4: 'April',
+    5: 'May',
+    6: 'June',
+    7: 'July',
+    8: 'August',
+    9: 'September',
+    10: 'October',
+    11: 'November',
+    12: 'December',
+  };
+
+  const day = weekdays[new Date(announcement.postDate).getDay()];
+  const month = months[new Date(announcement.postDate).getMonth()];
+  const monthDay = new Date(announcement.postDate).getDate();
+
   return (
     <div id="article-item">
-      {console.log(announcement)}
       <div className="article-item-thumbnail-container">
         <img alt="thumbnail" src={announcement.thumbnailUrl} className="article-item-thumbnail" />
       </div>
       <div className="article-item-title">
-      <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background-title" />
+        <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background-title" />
+        <div className="title-info">
+          <span id="title-info-category">{announcement.category}
+          </span>
+          &nbsp;by GAME_NAME_HERE&nbsp;
+          <span id="posted">POSTED</span>&nbsp;{day}, {month} {monthDay}
+        </div>
         <span className="announcement-title">{announcement.title}</span>
       </div>
       <div className="article-item-body">
@@ -21,10 +56,10 @@ const {announcement} = props;
         <div id="interactions-inner">
           <div id="interaction-ratings">
             <div id="rate-count">
-            <img src="../img/thumbs-up-blue.png" alt="" id="blue-thumb" />
+              <img src="../img/thumbs-up-blue.png" alt="" id="blue-thumb" />
               <div id="count">
                 1,111
-                </div>
+              </div>
             </div>
             <div id="user-rating">
               <div id="rate-up">
