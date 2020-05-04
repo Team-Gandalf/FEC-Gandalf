@@ -119,6 +119,7 @@ div#article-item {
   padding-top: 3rem;
   max-height: 40rem;
   max-width: 50rem;
+  margin: 0 auto;
 }
 
 .article-item-thumbnail-container {
@@ -140,6 +141,7 @@ div#article-item {
   z-index: 10;
   overflow: hidden;
   position: relative;
+  align-content: center;
 }
 
 .article-item-body {
@@ -201,7 +203,7 @@ div#interactions-share {
   width: 15%;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: 3em;
+  margin-left: 12em;
   margin-right: 2em;
   cursor: pointer;
   border: 1px solid #2b598ab5;
@@ -213,7 +215,7 @@ div#interaction-ratings {
   display: inline-flex;
   height: 85%;
   justify-content: space-evenly;
-  width: 45%;
+  width: 40%;
   font-size: 2em;
   font-weight: 700;
   color: #4d9bec;
@@ -227,10 +229,10 @@ div#interactions-comments {
   display: inline-flex;
   height: 85%;
   justify-content: center;
-  width: 25%;
+  width: 20%;
   font-size: 2em;
   font-weight: 700;
-  margin-left: 1em;
+  margin-left: 2em;
   border: 1px solid #2b598ab5;
 }
 
@@ -301,14 +303,13 @@ div#user-rating {
 img.blue-bubble {
   display: inline-flex;
   height: 1.5em;
-  padding-right: 0.5rem;
   padding-left: .5rem;
 }
 
 #comment-count {
   font-size: 1em;
   color: #4d9bec;
-  padding-right: 2rem;
+  padding-right: 1rem;
 }
 
 #share-icon{

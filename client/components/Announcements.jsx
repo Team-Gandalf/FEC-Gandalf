@@ -15,6 +15,54 @@ const Announcements = (props) => {
     setHover(false);
   };
 
+  const weekdays = {
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+    7: 'Sunday',
+  };
+
+  const months = {
+    1: 'January',
+    2: 'February',
+    3: 'March',
+    4: 'April',
+    5: 'May',
+    6: 'June',
+    7: 'July',
+    8: 'August',
+    9: 'September',
+    10: 'October',
+    11: 'November',
+    12: 'December',
+  };
+
+  let announcement;
+
+  if (allGames[0] !== undefined) {
+    announcement = allGames[0].announcements[0];
+  }
+
+  const parseDate = (date) => {
+    const parsed = new Date(date);
+    const day = weekdays[parsed.getDay()].slice(0, 3);
+    const month = months[parsed.getMonth()];
+    const monthDay = parsed.getDate();
+    const year = parsed.getFullYear();
+    const time = parsed.toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+      timezone: 'PDT',
+      timeZoneName: 'short',
+    });
+    return `${day}, ${month} ${monthDay}, ${year} ${time}`;
+  };
+
+
   // DOES NOT RENDER UNTIL THE INITIAL GET REQUEST IS COMPLETE
   if (allGames[0] === undefined) {
     return (<span>``</span>);
@@ -26,7 +74,7 @@ const Announcements = (props) => {
       <div id="mini-title">
         { allGames[0].title }
         <br />
-        <span className="summary-date">{allGames[0].announcements[0].postDate}</span>
+        <span className="summary-date">{parseDate(announcement.postDate)}</span>
       </div>
       { (hover) ? <Overlay game={allGames[0]} toggleArticles={props.toggleArticles} /> : null }
     </div>

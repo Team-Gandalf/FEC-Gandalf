@@ -72,7 +72,7 @@ const ArticleItem = (props) => {
             </div>
           </div>
           <div id="interactions-comments">
-            <img src="../img/blue-bubble.png" alt="" className="blue-bubble" /><span id="comment-count">111</span>
+            <img src="../img/blue-bubble.png" alt="" className="blue-bubble" />&nbsp;<span id="comment-count">111</span>
             <span id="discuss-text">Discuss</span>
           </div>
           <div id="interactions-share">
