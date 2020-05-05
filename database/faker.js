@@ -14,6 +14,7 @@ for (let i = 0; i < announcementsCount; i += 1) {
     body: faker.lorem.paragraphs(),
     category: categories[randomIndex],
     url: faker.internet.url(),
+    thumbnailUrl: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/36225228/efee37e07322802794443f01eda517422f667887_960x311.jpg',
   });
 }
 
@@ -31,7 +32,6 @@ const createFakeData = () => {
   const data = {
     name: faker.lorem.words(),
     image: faker.image.image(),
-    title: faker.lorem.sentence(),
     likes: Math.floor(Math.random() * 100),
     commentCount,
     announcements,

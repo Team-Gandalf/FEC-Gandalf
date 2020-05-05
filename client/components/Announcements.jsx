@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 
@@ -5,7 +6,7 @@ import Overlay from './Overlay.jsx';
 
 const Announcements = (props) => {
   const [hover, setHover] = useState(false);
-  const {allGames} = props;
+  const { game, toggleArticles } = props;
 
   const renderOverlay = () => {
     setHover(true);
@@ -42,8 +43,9 @@ const Announcements = (props) => {
 
   let announcement;
 
-  if (allGames[0] !== undefined) {
-    announcement = allGames[0].announcements[0];
+  if (game.announcements !== undefined) {
+    // eslint-disable-next-line prefer-destructuring
+    announcement = game.announcements[0];
   }
 
   const parseDate = (date) => {
@@ -64,23 +66,29 @@ const Announcements = (props) => {
 
 
   // DOES NOT RENDER UNTIL THE INITIAL GET REQUEST IS COMPLETE
-  if (allGames[0] === undefined) {
+  if (game.announcements === undefined) {
     return (<span>``</span>);
   }
 
   return (
-    <div id="main-container" onMouseOver={renderOverlay} onFocus={renderOverlay} onMouseEnter={renderOverlay} onMouseLeave={unMountOverlay}>
+    <div
+      id="main-container"
+      onMouseOver={renderOverlay}
+      onFocus={renderOverlay}
+      onMouseEnter={renderOverlay}
+      onMouseLeave={unMountOverlay}
+    >
       <div id="thumbnail">
         <img src={announcement.thumbnailUrl} alt="" id="mini-view-thumbnail" />
       </div>
       <div id="mini-title">
         <span id="mini-title-text">
-          { allGames[0].title }
+          { game.announcements[0].title }
         </span>
         <br />
         <span className="summary-date">{parseDate(announcement.postDate)}</span>
       </div>
-      { (hover) ? <Overlay game={allGames[0]} toggleArticles={props.toggleArticles} /> : null }
+      { (hover) ? <Overlay game={game} toggleArticles={toggleArticles} /> : null }
     </div>
   );
 };

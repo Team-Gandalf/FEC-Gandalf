@@ -21,6 +21,17 @@ app.get('/allGames', (req, res) => {
   });
 });
 
+app.get('/randomGame', (req, res) => {
+  db.getAllGames((err, data) => {
+    if (err) {
+      // eslint-disable-next-line no-console
+      console.error('ERROR: ', err);
+    } else {
+      res.send(data[0]);
+    }
+  });
+});
+
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Serving is now listening on port: ${port}`);

@@ -4,7 +4,8 @@ import React from 'react';
 import ArticleItem from './ArticleItem.jsx';
 
 const Articles = (props) => {
-  const collection = props.allGames[0].announcements;
+  const { game } = props;
+  const collection = game.announcements;
   return (
     <div id="articles" onClick={props.toggleArticles}>
       <div id="article-item-area">
