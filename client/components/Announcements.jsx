@@ -6,7 +6,18 @@ import Overlay from './Overlay.jsx';
 
 const Announcements = (props) => {
   const [hover, setHover] = useState(false);
-  const { game, toggleArticles } = props;
+  const { game, toggleArticles, kind } = props;
+
+  let announcementsSet;
+  let eventsSet;
+  let item;
+  let focus;
+
+  if (game.announcements !== undefined) {
+    announcementsSet = game.announcements.filter((el) => el.category === 'announcement');
+    eventsSet = game.announcements.filter((el) => el.category === 'event');
+  }
+
 
   const renderOverlay = () => {
     setHover(true);
@@ -41,12 +52,12 @@ const Announcements = (props) => {
     12: 'December',
   };
 
-  let announcement;
-
   if (game.announcements !== undefined) {
-    // eslint-disable-next-line prefer-destructuring
-    announcement = game.announcements[0];
+    focus = (kind === 'event') ? eventsSet : announcementsSet;
+    item = focus[focus.length * Math.floor(Math.random() * focus.length)];
   }
+
+  console.log(item)
 
   const parseDate = (date) => {
     const parsed = new Date(date);
@@ -78,17 +89,17 @@ const Announcements = (props) => {
       onMouseEnter={renderOverlay}
       onMouseLeave={unMountOverlay}
     >
-      <div id="thumbnail">
-        <img src={announcement.thumbnailUrl} alt="" id="mini-view-thumbnail" />
+      {/* <div id="thumbnail">
+        <img src={item.thumbnailUrl} alt="" id="mini-view-thumbnail" />
       </div>
       <div id="mini-title">
         <span id="mini-title-text">
-          { game.announcements[0].title }
+          { item.title }
         </span>
         <br />
-        <span className="summary-date">{parseDate(announcement.postDate)}</span>
+        <span className="summary-date">{parseDate(item.postDate)}</span>
       </div>
-      { (hover) ? <Overlay game={game} toggleArticles={toggleArticles} /> : null }
+      { (hover) ? <Overlay game={game} toggleArticles={toggleArticles} /> : null } */}
     </div>
   );
 };
