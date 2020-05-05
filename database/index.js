@@ -20,6 +20,7 @@ const announcementsSchema = new Schema({
   body: String,
   category: String,
   url: String,
+  thumbnailUrl: String,
 });
 
 const commentSchema = new Schema({
