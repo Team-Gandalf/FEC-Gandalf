@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 const ArticleItem = (props) => {
   const { announcement } = props;
+  const { name } = props;
 
   const weekdays = {
     1: 'Monday',
@@ -41,10 +42,21 @@ const ArticleItem = (props) => {
       <div className="article-item-title">
         <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background-title" />
         <div className="title-info">
-          <span id="title-info-category">{announcement.category}
+          <span id="title-info-category">
+            {announcement.category}
           </span>
-          &nbsp;by GAME_NAME_HERE&nbsp;
-          <span id="posted">POSTED</span>&nbsp;{day}, {month} {monthDay}
+            &nbsp;by
+          {' '}
+          { name }
+          &nbsp;
+          <span id="posted">POSTED</span>
+          &nbsp;
+          {day}
+          ,
+          {' '}
+          {month}
+          {' '}
+          {monthDay}
         </div>
         <span className="announcement-title">{announcement.title}</span>
       </div>
@@ -72,7 +84,9 @@ const ArticleItem = (props) => {
             </div>
           </div>
           <div id="interactions-comments">
-            <img src="../img/blue-bubble.png" alt="" className="blue-bubble" />&nbsp;<span id="comment-count">111</span>
+            <img src="../img/blue-bubble.png" alt="" className="blue-bubble" />
+&nbsp;
+            <span id="comment-count">111</span>
             <span id="discuss-text">Discuss</span>
           </div>
           <div id="interactions-share">

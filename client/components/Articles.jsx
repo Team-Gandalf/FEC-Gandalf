@@ -5,6 +5,7 @@ import ArticleItem from './ArticleItem.jsx';
 
 const Articles = (props) => {
   const { game } = props;
+  const { name } = game;
   const collection = game.announcements;
   return (
     <div id="articles" onClick={props.toggleArticles}>
@@ -14,7 +15,7 @@ const Articles = (props) => {
             <circle r="20" fill="orange" />
           </svg>
         </div>
-        <ArticleItem announcement={collection[0]} />
+        <ArticleItem name={name} announcement={collection[0]} />
       </div>
     </div>
   );
