@@ -10,24 +10,15 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-app.get('/allGames', (req, res) => {
-  db.getAllGames((err, data) => {
-    if (err) {
-      // eslint-disable-next-line no-console
-      console.error('ERROR: ', err);
-    } else {
-      res.send(data);
-    }
-  });
-});
-
 app.get('/randomGame', (req, res) => {
   db.getAllGames((err, data) => {
     if (err) {
       // eslint-disable-next-line no-console
       console.error('ERROR: ', err);
     } else {
-      res.send(data[0]);
+      const len = data.length;
+      const random = Math.floor(Math.random() * len);
+      res.send(data[random]);
     }
   });
 });
