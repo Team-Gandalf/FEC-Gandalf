@@ -47,8 +47,11 @@ const App = () => {
 
   return (
     <div>
-      <div id="Announcements">
-        <Announcements game={game} toggleArticles={toggleArticles} />
+      <div id="Announcements" className="events">
+        <Announcements game={game} toggleArticles={toggleArticles} kind="events" />
+      </div>
+      <div id="Announcements" className="announcements">
+        <Announcements game={game} toggleArticles={toggleArticles} kind="announcements" />
       </div>
       <div id="article-modal">
         {(showArticles) ? <Articles game={game} toggleArticles={toggleArticles} /> : null}
