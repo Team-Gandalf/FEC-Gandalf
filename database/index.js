@@ -48,9 +48,18 @@ const Game = mongoose.model('games', gameSchema);
 module.exports = {
   Game,
   getAllGames: (callback) => {
-    module.exports.Game.find((err, data) => {
+    Game.find((err, data) => {
       if (err) {
         // eslint-disable-next-line no-console
+        callback(err);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
+  getGame: ({ _id }, callback) => {
+    Game.findOne({ _id }, (err, data) => {
+      if (err) {
         callback(err);
       } else {
         callback(null, data);

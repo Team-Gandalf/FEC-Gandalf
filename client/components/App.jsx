@@ -9,6 +9,8 @@ import Articles from './Articles.jsx';
 const App = () => {
   const [showArticles, setShowArticles] = useState(false);
   const [game, setGame] = useState({});
+  // eslint-disable-next-line no-undef
+  const directUrlInput = window.location.search.slice(2);
 
   const toggleArticles = () => {
     setShowArticles(!showArticles);
@@ -24,14 +26,28 @@ const App = () => {
       });
   };
 
+  const getGame = () => {
+    axios.get('/getGame', {
+      params: {
+        _id: directUrlInput,
+      },
+    })
+      .then((res) => {
+        setGame(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   useEffect(() => {
-    getRandomGame();
+    // eslint-disable-next-line no-unused-expressions
+    (directUrlInput === '') ? getRandomGame() : getGame(directUrlInput);
   }, []); // empty array as dependency required to stop infinite loop
 
   return (
     <div>
       <div id="Announcements">
-        {console.log(game)}
         <Announcements game={game} toggleArticles={toggleArticles} />
       </div>
       <div id="article-modal">
