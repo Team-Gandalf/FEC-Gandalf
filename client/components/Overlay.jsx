@@ -2,10 +2,11 @@
 import React from 'react';
 
 const Overlay = (props) => {
-  const { category } = props.game.announcements[0];
+  const { item, toggleArticles } = props;
+  const { category } = item;
 
   const loadPage = () => {
-    props.toggleArticles();
+    toggleArticles();
   };
 
   return (
@@ -13,9 +14,9 @@ const Overlay = (props) => {
       <span className="category">{category}</span>
       <br />
       <br />
-      {(props.game.announcements[0].body.length > 500)
-        ? `${props.game.announcements[0].body.slice(0, 500)} ...`
-        : props.game.announcements[0].body }
+      {(item.body.length > 500)
+        ? `${item.body.slice(0, 500)} ...`
+        : item.body }
     </div>
   );
 };
