@@ -49,7 +49,7 @@ const App = () => {
 
   const updateLikes = (changes, gameId, announcementId) => {
     const { rateUp, rateDown } = changes;
-    axios.put('/updateLikes', {
+    axios.patch('/updateLikes', {
       gameId,
       announcementId,
       rateUp,
