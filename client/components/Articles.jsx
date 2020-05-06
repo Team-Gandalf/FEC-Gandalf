@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -20,7 +21,7 @@ const Articles = (props) => {
           </svg>
         </div>
         {collection.map((announcement) => {
-          return <ArticleItem name={name} announcement={announcement} key={announcement._id}/>;
+          return <ArticleItem name={name} announcement={announcement} key={announcement._id} />;
         })}
       </div>
     </div>

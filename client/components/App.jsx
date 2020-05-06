@@ -69,9 +69,9 @@ const App = () => {
       <div id="Announcements" className="events">
         <Announcements game={game} item={eventItem} toggleArticles={toggleArticles} kind="event" />
       </div>
-      {/* <div id="Announcements" className="announcements">
-        <Announcements game={game} toggleArticles={toggleArticles} kind="announcement" />
-      </div> */}
+      <div id="Announcements" className="announcements">
+        <Announcements game={game} item={announcementItem} toggleArticles={toggleArticles} kind="announcement" />
+      </div>
       <div id="article-modal">
         {(showArticles) ? <Articles game={game} toggleArticles={toggleArticles} /> : null}
       </div>
