@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
@@ -18,7 +20,6 @@ const App = () => {
     if (typeof input === 'string') {
       setScroll(input);
     }
-
     setShowArticles(!showArticles);
   };
 
@@ -46,15 +47,17 @@ const App = () => {
       });
   };
 
-  const updateLikes = (changes, _id) => {
+  const updateLikes = (changes, gameId, announcementId) => {
     const { rateUp, rateDown } = changes;
     axios.put('/updateLikes', {
-      _id,
+      gameId,
+      announcementId,
       rateUp,
       rateDown,
     })
       .then((data) => {
-        console.log(data);
+        setGame(data.data);
+        console.log(data.data);
       })
       .catch((err) => {
         console.error(err);

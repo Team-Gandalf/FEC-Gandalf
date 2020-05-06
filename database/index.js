@@ -65,4 +65,15 @@ module.exports = {
       }
     });
   },
+  getAnnouncement: ({
+    gameId, announcementId, rateUp, rateDown,
+  }, callback) => {
+    Game.findOneAndUpdate({ 'announcements._id': announcementId }, { $set: { 'announcements.$.rateUp': rateUp, 'announcements.$.rateDown': rateDown } }, (err, data) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
 };

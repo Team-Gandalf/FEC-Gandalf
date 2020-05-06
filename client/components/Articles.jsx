@@ -7,14 +7,16 @@ import React, { useEffect } from 'react';
 import ArticleItem from './ArticleItem.jsx';
 
 const Articles = (props) => {
-  const { game, toggleArticles, scroll, updateLikes } = props;
+  const {
+    game, toggleArticles, scroll, updateLikes,
+  } = props;
   const { name } = game;
   const collection = game.announcements;
   collection.sort((a, b) => (new Date(b.postDate)) - (new Date(a.postDate)));
 
   useEffect((() => {
     const element = document.getElementById(scroll);
-    element.scrollIntoView({ behavior: 'smooth', block: 'center'});
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }), []);
 
   return (

@@ -9,7 +9,9 @@ const stopBubble = (e) => {
   e.stopPropagation();
 };
 
+
 const ArticleItem = (props) => {
+
   const {
     announcement, game, name, updateLikes,
   } = props;
@@ -64,13 +66,13 @@ const ArticleItem = (props) => {
   const updateRate = (action) => {
     if (action === 'like') {
       if (rateUp === null || rateDown === true) {
-        updateLikes({ rateUp: true, rateDown: false }, game._id);
+        updateLikes({ rateUp: true, rateDown: false }, game._id, announcement._id);
       }
     }
 
     if (action === 'dislike') {
       if (rateDown === null || rateUp === true) {
-        updateLikes({ rateUp: false, rateDown: true }, game._id);
+        updateLikes({ rateUp: false, rateDown: true }, game._id, announcement._id);
       }
     }
   };
@@ -84,7 +86,7 @@ const ArticleItem = (props) => {
   };
 
   return (
-    <div id="article-item" onClick={(e) => { stopBubble(e); }}>
+    <div id="article-item" onClick={stopBubble}>
       <div className="article-item-thumbnail-container">
         <img alt="thumbnail" src={announcement.thumbnailUrl} className="article-item-thumbnail" />
       </div>
