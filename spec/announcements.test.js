@@ -8,14 +8,19 @@ import Announcements from '../client/components/Announcements';
 
 const game = require('./game.js');
 
-describe('App Component', () => {
+describe('App', () => {
   it('should render the App component correctly', () => {
     const component = shallow(<App />);
     expect(component).toMatchSnapshot();
   });
 
-  it('should render the App component correctly with a given game', () => {
-    const component = shallow(<App game={game} />);
+  it('should render the Announcements component correctly', () => {
+    const component = shallow(<Announcements game={game} item={} />);
     expect(component).toMatchSnapshot();
   });
+
+  // it('should render the Announcement component correctly with a given game', () => {
+  //   const component = shallow(<App game={game} />);
+  //   expect(component).toMatchSnapshot();
+  // });
 });
