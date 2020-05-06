@@ -1,7 +1,24 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop); // scrollTo(x-cord, ycord)
+
+const useMountEffect = (input) => {
+  useEffect(input, []);
+};
+
+const stopBubble = (e) => {
+  e.stopPropagation();
+};
+
+const doStuff = (e) => {
+  console.log('hey!');
+};
 
 const ArticleItem = (props) => {
+  const ref = useRef(null);
+  useMountEffect(() => { scrollToRef(ref); });
+
   const { announcement } = props;
   const { name } = props;
 
@@ -35,7 +52,8 @@ const ArticleItem = (props) => {
   const monthDay = new Date(announcement.postDate).getDate();
 
   return (
-    <div id="article-item">
+    <div id="article-item" onClick={(e) => {stopBubble(e)}}>
+      <button onClick={(e) => doStuff(e)} >Testing Scroll</button>
       <div className="article-item-thumbnail-container">
         <img alt="thumbnail" src={announcement.thumbnailUrl} className="article-item-thumbnail" />
       </div>
@@ -60,7 +78,7 @@ const ArticleItem = (props) => {
         </div>
         <span className="announcement-title">{announcement.title}</span>
       </div>
-      <div className="article-item-body">
+      <div className="article-item-body" ref={ref}>
         <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" />
         {announcement.body}
       </div>
