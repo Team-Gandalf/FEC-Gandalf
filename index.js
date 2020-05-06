@@ -13,7 +13,7 @@ app.use(express.static('public'));
 app.get('/randomGame', (req, res) => {
   db.getAllGames((err, data) => {
     if (err) {
-      console.error('ERROR: ', err);
+      // console.error('ERROR: ', err);
       res.send(400);
     } else {
       const len = data.length;
@@ -34,7 +34,7 @@ app.get('/getGame', (req, res) => {
 
   db.getGame({ _id }, (err, data) => {
     if (err) {
-      console.error('ERROR: ', err);
+      // console.error('ERROR: ', err);
       res.send(400);
     } else {
       res.send(data);
@@ -50,12 +50,12 @@ app.patch('/updateLikes', (req, res) => {
     gameId, announcementId, rateUp, rateDown,
   }, (err, data) => {
     if (err) {
-      console.error('ERROR: ', err);
+      // console.error('ERROR: ', err);
       res.send(400);
     } else {
       db.getGame({ _id: gameId }, (err, data) => {
         if (err) {
-          console.error('ERROR: ', err);
+          // console.error('ERROR: ', err);
           res.send(400);
         } else {
           res.send(data);
