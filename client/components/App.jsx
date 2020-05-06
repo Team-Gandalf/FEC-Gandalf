@@ -9,10 +9,15 @@ import Articles from './Articles.jsx';
 const App = () => {
   const [showArticles, setShowArticles] = useState(false);
   const [game, setGame] = useState({});
+  const [scroll, setScroll] = useState('');
   // eslint-disable-next-line no-undef
   const directUrlInput = window.location.search.slice(2);
 
-  const toggleArticles = () => {
+  const toggleArticles = (input) => {
+    if (typeof input === 'string') {
+      setScroll(input);
+    }
+
     setShowArticles(!showArticles);
   };
 
@@ -73,7 +78,7 @@ const App = () => {
         <Announcements game={game} item={announcementItem} toggleArticles={toggleArticles} kind="announcement" />
       </div>
       <div id="article-modal">
-        {(showArticles) ? <Articles game={game} toggleArticles={toggleArticles} /> : null}
+        {(showArticles) ? <Articles game={game} toggleArticles={toggleArticles} scroll={scroll} /> : null}
       </div>
     </div>
   );

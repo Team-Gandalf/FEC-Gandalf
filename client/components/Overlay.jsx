@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
@@ -6,7 +7,7 @@ const Overlay = (props) => {
   const { category } = item;
 
   const loadPage = () => {
-    toggleArticles();
+    toggleArticles(item._id);
   };
 
   return (

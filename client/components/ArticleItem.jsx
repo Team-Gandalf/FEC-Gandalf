@@ -1,9 +1,14 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React from 'react';
+
+const stopBubble = (e) => {
+  e.stopPropagation();
+};
 
 const ArticleItem = (props) => {
-  const { announcement } = props;
-  const { name } = props;
+  const { announcement, name } = props;
 
   const weekdays = {
     1: 'Monday',
@@ -35,7 +40,7 @@ const ArticleItem = (props) => {
   const monthDay = new Date(announcement.postDate).getDate();
 
   return (
-    <div id="article-item">
+    <div id="article-item" onClick={(e) => { stopBubble(e); }}>
       <div className="article-item-thumbnail-container">
         <img alt="thumbnail" src={announcement.thumbnailUrl} className="article-item-thumbnail" />
       </div>
@@ -61,7 +66,7 @@ const ArticleItem = (props) => {
         <span className="announcement-title">{announcement.title}</span>
       </div>
       <div className="article-item-body">
-        <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" />
+        <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" id={announcement._id} />
         {announcement.body}
       </div>
       <div className="article-item-interactions">
