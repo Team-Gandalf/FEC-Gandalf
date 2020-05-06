@@ -1,7 +1,7 @@
 const faker = require('faker');
 const db = require('./index.js');
 
-const rate = faker.random.boolean();
+const rateOptions = [true, false, null];
 
 const thumbnails = [
   'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/36225228/efee37e07322802794443f01eda517422f667887_960x311.jpg',
@@ -14,6 +14,7 @@ const thumbnails = [
   'https://steamcdn-a.akamaihd.net/steam/apps/10150/0000008853.600x338.jpg?t=1534443367',
   'https://steamcdn-a.akamaihd.net/steam/apps/13500/header.jpg?t=1447351266',
 ];
+
 const filler = { 0: 'event', 1: 'announcement' };
 
 const announcementsCount = Math.floor(Math.random() * 10);
@@ -22,6 +23,10 @@ const produceAnnouncements = () => {
   const categories = ['event', 'announcement'];
   for (let i = 0; i < announcementsCount; i += 1) {
     const randomIndex = Math.floor(Math.random() * 2);
+    const commentCount = Math.floor(Math.random() * 50);
+    const rateDown = rateOptions[(Math.floor(Math.random() * 3))];
+    const rateUp = (rateDown === null) ? null : !rateDown;
+
     announcements.push({
       title: faker.lorem.sentence().slice(0, 50),
       postDate: faker.date.recent(),
@@ -29,37 +34,23 @@ const produceAnnouncements = () => {
       category: (i <= 1)? filler[i] : categories[randomIndex],
       url: faker.internet.url(),
       thumbnailUrl: thumbnails[Math.floor(Math.random() * thumbnails.length)],
+      rateUp,
+      rateDown,
+      commentCount,
+      likes: Math.floor(Math.random() * 100),
     });
   }
   return announcements;
 };
 
-const commentCount = Math.floor(Math.random() * 50);
-const produceComments = () => {
-  const comments = [];
-  for (let i = 0; i < commentCount; i += 1) {
-    comments.push({
-      username: faker.internet.userName(),
-      postDate: faker.date.past(),
-      commentBody: faker.lorem.paragraph(),
-    });
-  }
-  return comments;
-};
-
 const createFakeData = () => {
   const allAnnouncements = produceAnnouncements();
-  const allComments = produceComments();
+
   const data = {
     name: faker.lorem.words().slice(0, 30),
     image: faker.image.image(),
-    likes: Math.floor(Math.random() * 100),
-    commentCount,
     announcements: allAnnouncements,
-    // comments: allComments,
     url: faker.internet.url(),
-    rateUp: rate,
-    rateDown: !rate,
   };
   return data;
 };

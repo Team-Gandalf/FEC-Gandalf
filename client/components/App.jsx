@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
@@ -17,7 +20,6 @@ const App = () => {
     if (typeof input === 'string') {
       setScroll(input);
     }
-
     setShowArticles(!showArticles);
   };
 
@@ -45,6 +47,23 @@ const App = () => {
       });
   };
 
+  const updateLikes = (changes, gameId, announcementId) => {
+    const { rateUp, rateDown } = changes;
+    axios.put('/updateLikes', {
+      gameId,
+      announcementId,
+      rateUp,
+      rateDown,
+    })
+      .then((data) => {
+        setGame(data.data);
+        console.log(data.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   let allEvents;
   let allAnnouncements;
   let eventItem;
@@ -53,12 +72,8 @@ const App = () => {
   if (game.announcements !== undefined) {
     allEvents = game.announcements.filter((el) => el.category === 'event');
     allAnnouncements = game.announcements.filter((el) => el.category === 'announcement');
-    allEvents.sort((a, b) => {
-      return (new Date(b.postDate)) - (new Date(a.postDate));
-    });
-    allAnnouncements.sort((a, b) => {
-      return (new Date(b.postDate)) - (new Date(a.postDate));
-    });
+    allEvents.sort((a, b) => (new Date(b.postDate)) - (new Date(a.postDate)));
+    allAnnouncements.sort((a, b) => (new Date(b.postDate)) - (new Date(a.postDate)));
 
     eventItem = allEvents[0];
     announcementItem = allAnnouncements[0];
@@ -78,7 +93,15 @@ const App = () => {
         <Announcements game={game} item={announcementItem} toggleArticles={toggleArticles} kind="announcement" />
       </div>
       <div id="article-modal">
-        {(showArticles) ? <Articles game={game} toggleArticles={toggleArticles} scroll={scroll} /> : null}
+        {(showArticles)
+          ? (
+            <Articles
+              game={game}
+              toggleArticles={toggleArticles}
+              scroll={scroll}
+              updateLikes={updateLikes}
+            />
+          ) : null}
       </div>
     </div>
   );

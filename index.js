@@ -36,6 +36,30 @@ app.get('/getGame', (req, res) => {
   });
 });
 
+app.put('/updateLikes', (req, res) => {
+  const {
+    gameId, announcementId, rateUp, rateDown,
+  } = req.body;
+  console.log(gameId, announcementId, 'rateUp: ', rateUp, 'rateDown: ', rateDown);
+  db.getAnnouncement({
+    gameId, announcementId, rateUp, rateDown,
+  }, (err, data) => {
+    if (err) {
+      console.error('ERROR: ', err);
+      res.send(400);
+    } else {
+      db.getGame({ _id: gameId }, (err, data) => {
+        if (err) {
+          console.error('ERROR: ', err);
+          res.send(400);
+        } else {
+          res.send(data);
+        }
+      });
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Serving is now listening on port: ${port}`);
 });
