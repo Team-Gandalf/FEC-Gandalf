@@ -6,7 +6,7 @@ import Overlay from './Overlay.jsx';
 
 const Announcements = (props) => {
   const [hover, setHover] = useState(false);
-  const { game, toggleArticles } = props;
+  const { game, toggleArticles, item } = props;
 
   const renderOverlay = () => {
     setHover(true);
@@ -41,13 +41,6 @@ const Announcements = (props) => {
     12: 'December',
   };
 
-  let announcement;
-
-  if (game.announcements !== undefined) {
-    // eslint-disable-next-line prefer-destructuring
-    announcement = game.announcements[0];
-  }
-
   const parseDate = (date) => {
     const parsed = new Date(date);
     const day = weekdays[parsed.getDay()].slice(0, 3);
@@ -79,16 +72,16 @@ const Announcements = (props) => {
       onMouseLeave={unMountOverlay}
     >
       <div id="thumbnail">
-        <img src={announcement.thumbnailUrl} alt="" id="mini-view-thumbnail" />
+        <img src={item.thumbnailUrl} alt="" id="mini-view-thumbnail" />
       </div>
       <div id="mini-title">
         <span id="mini-title-text">
-          { game.announcements[0].title }
+          { item.title }
         </span>
         <br />
-        <span className="summary-date">{parseDate(announcement.postDate)}</span>
+        <span className="summary-date">{parseDate(item.postDate)}</span>
       </div>
-      { (hover) ? <Overlay game={game} toggleArticles={toggleArticles} /> : null }
+      { (hover) ? <Overlay item={item} toggleArticles={toggleArticles} /> : null }
     </div>
   );
 };

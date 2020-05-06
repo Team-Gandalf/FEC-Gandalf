@@ -375,3 +375,7 @@ img#mini-view-thumbnail {
   right: 0%;
   height: -webkit-fill-available;
 }
+
+.announcements {
+  margin-left: 0.5rem;
+}

@@ -40,6 +40,25 @@ const App = () => {
       });
   };
 
+  let allEvents;
+  let allAnnouncements;
+  let eventItem;
+  let announcementItem;
+
+  if (game.announcements !== undefined) {
+    allEvents = game.announcements.filter((el) => el.category === 'event');
+    allAnnouncements = game.announcements.filter((el) => el.category === 'announcement');
+    allEvents.sort((a, b) => {
+      return (new Date(b.postDate)) - (new Date(a.postDate));
+    });
+    allAnnouncements.sort((a, b) => {
+      return (new Date(b.postDate)) - (new Date(a.postDate));
+    });
+
+    eventItem = allEvents[0];
+    announcementItem = allAnnouncements[0];
+  }
+
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
     (directUrlInput === '') ? getRandomGame() : getGame(directUrlInput);
@@ -47,8 +66,11 @@ const App = () => {
 
   return (
     <div>
-      <div id="Announcements">
-        <Announcements game={game} toggleArticles={toggleArticles} />
+      <div id="Announcements" className="events">
+        <Announcements game={game} item={eventItem} toggleArticles={toggleArticles} kind="event" />
+      </div>
+      <div id="Announcements" className="announcements">
+        <Announcements game={game} item={announcementItem} toggleArticles={toggleArticles} kind="announcement" />
       </div>
       <div id="article-modal">
         {(showArticles) ? <Articles game={game} toggleArticles={toggleArticles} /> : null}

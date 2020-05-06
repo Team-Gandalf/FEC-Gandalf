@@ -14,6 +14,7 @@ const thumbnails = [
   'https://steamcdn-a.akamaihd.net/steam/apps/10150/0000008853.600x338.jpg?t=1534443367',
   'https://steamcdn-a.akamaihd.net/steam/apps/13500/header.jpg?t=1447351266',
 ];
+const filler = { 0: 'event', 1: 'announcement' };
 
 const announcementsCount = Math.floor(Math.random() * 10);
 const produceAnnouncements = () => {
@@ -25,7 +26,7 @@ const produceAnnouncements = () => {
       title: faker.lorem.sentence().slice(0, 50),
       postDate: faker.date.recent(),
       body: faker.lorem.paragraphs().slice(0, 1000),
-      category: categories[randomIndex],
+      category: (i <= 1)? filler[i] : categories[randomIndex],
       url: faker.internet.url(),
       thumbnailUrl: thumbnails[Math.floor(Math.random() * thumbnails.length)],
     });
@@ -55,7 +56,7 @@ const createFakeData = () => {
     likes: Math.floor(Math.random() * 100),
     commentCount,
     announcements: allAnnouncements,
-    comments: allComments,
+    // comments: allComments,
     url: faker.internet.url(),
     rateUp: rate,
     rateDown: !rate,
