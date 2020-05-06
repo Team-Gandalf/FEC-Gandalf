@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component should render the App component correctly 1`] = `
+<div>
+  <div
+    className="events"
+    id="Announcements"
+  >
+    <Announcements
+      game={Object {}}
+      kind="event"
+      toggleArticles={[Function]}
+    />
+  </div>
+  <div
+    className="announcements"
+    id="Announcements"
+  >
+    <Announcements
+      game={Object {}}
+      kind="announcement"
+      toggleArticles={[Function]}
+    />
+  </div>
+  <div
+    id="article-modal"
+  />
+</div>
+`;

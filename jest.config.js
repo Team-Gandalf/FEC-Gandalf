@@ -95,15 +95,15 @@ module.exports = {
 
   // Run tests from one or more projects
   projects: [
-    {
-      clearMocks: true,
-      coverageDirectory: "coverage",
-      displayName: "backend",
-      testEnvironment: "node",
-      testMatch: [
-        '<rootDir>/index.test.js',
-      ],
-    },
+    // {
+    //   clearMocks: true,
+    //   coverageDirectory: "coverage",
+    //   displayName: "backend",
+    //   testEnvironment: "node",
+    //   testMatch: [
+    //     '<rootDir>/index.test.js',
+    //   ],
+    // },
     {
       clearMocks: true,
       coverageDirectory: "coverage",
@@ -112,7 +112,7 @@ module.exports = {
       snapshotSerializers: ["enzyme-to-json/serializer"],
       testEnvironment: "jsdom",
       testMatch: [
-        '<rootDir>/client/spec/announcements.test.js',
+        '<rootDir>/spec/announcements.test.js',
       ],
     },
   ],
