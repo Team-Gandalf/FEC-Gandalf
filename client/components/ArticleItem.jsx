@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect, useRef } from 'react';
-
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop); // scrollTo(x-cord, ycord)
+import React from 'react';
 
 const stopBubble = (e) => {
   e.stopPropagation();
