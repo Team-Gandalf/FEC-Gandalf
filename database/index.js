@@ -68,7 +68,7 @@ module.exports = {
   getAnnouncement: ({
     gameId, announcementId, rateUp, rateDown,
   }, callback) => {
-    Game.findOneAndUpdate({ 'announcements._id': announcementId }, { $set: { 'announcements.$.rateUp': rateUp, 'announcements.$.rateDown': rateDown } }, (err, data) => {
+    Game.findOneAndUpdate({ 'announcements._id': announcementId }, { $set: { 'announcements.$.rateUp': rateUp, 'announcements.$.rateDown': rateDown }, $inc: {'announcements.$.likes': 1 } }, (err, data) => {
       if (err) {
         callback(err);
       } else {
