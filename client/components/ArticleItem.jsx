@@ -1,26 +1,16 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, useRef } from 'react';
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop); // scrollTo(x-cord, ycord)
 
-const useMountEffect = (input) => {
-  useEffect(input, []);
-};
-
 const stopBubble = (e) => {
   e.stopPropagation();
 };
 
-const doStuff = (e) => {
-  console.log('hey!');
-};
-
 const ArticleItem = (props) => {
-  const ref = useRef(null);
-  useMountEffect(() => { scrollToRef(ref); });
-
-  const { announcement } = props;
-  const { name } = props;
+  const { announcement, name } = props;
 
   const weekdays = {
     1: 'Monday',
@@ -52,8 +42,7 @@ const ArticleItem = (props) => {
   const monthDay = new Date(announcement.postDate).getDate();
 
   return (
-    <div id="article-item" onClick={(e) => {stopBubble(e)}}>
-      <button onClick={(e) => doStuff(e)} >Testing Scroll</button>
+    <div id="article-item" onClick={(e) => { stopBubble(e); }}>
       <div className="article-item-thumbnail-container">
         <img alt="thumbnail" src={announcement.thumbnailUrl} className="article-item-thumbnail" />
       </div>
@@ -78,7 +67,7 @@ const ArticleItem = (props) => {
         </div>
         <span className="announcement-title">{announcement.title}</span>
       </div>
-      <div className="article-item-body" ref={ref}>
+      <div className="article-item-body">
         <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" />
         {announcement.body}
       </div>
