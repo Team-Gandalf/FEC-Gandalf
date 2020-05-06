@@ -66,7 +66,7 @@ const ArticleItem = (props) => {
         <span className="announcement-title">{announcement.title}</span>
       </div>
       <div className="article-item-body">
-        <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" />
+        <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" id={announcement._id} />
         {announcement.body}
       </div>
       <div className="article-item-interactions">
