@@ -46,16 +46,15 @@ const App = () => {
   let announcementItem;
 
   if (game.announcements !== undefined) {
-    console.log('BEFORE: ', game.announcements.filter((el) => el.category === 'event'));
-  }
-
-  if (game.announcements !== undefined) {
     allEvents = game.announcements.filter((el) => el.category === 'event');
     allAnnouncements = game.announcements.filter((el) => el.category === 'announcement');
     allEvents.sort((a, b) => {
       return (new Date(b.postDate)) - (new Date(a.postDate));
     });
-    console.log(allEvents);
+    allAnnouncements.sort((a, b) => {
+      return (new Date(b.postDate)) - (new Date(a.postDate));
+    });
+
     eventItem = allEvents[0];
     announcementItem = allAnnouncements[0];
   }
@@ -74,7 +73,7 @@ const App = () => {
         <Announcements game={game} toggleArticles={toggleArticles} kind="announcement" />
       </div> */}
       <div id="article-modal">
-        {/* {(showArticles) ? <Articles game={game} toggleArticles={toggleArticles} /> : null} */}
+        {(showArticles) ? <Articles game={game} toggleArticles={toggleArticles} /> : null}
       </div>
     </div>
   );
