@@ -67,7 +67,7 @@ module.exports = {
     });
   },
   updateAnnouncement: ({
-    gameId, announcementId, rateUp, rateDown,
+    announcementId, rateUp, rateDown,
   }, callback) => {
     let value;
     (rateUp) ? value = 1 : value = -1;

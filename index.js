@@ -40,7 +40,6 @@ app.put('/updateLikes', (req, res) => {
   const {
     gameId, announcementId, rateUp, rateDown,
   } = req.body;
-  console.log(gameId, announcementId, 'rateUp: ', rateUp, 'rateDown: ', rateDown);
   db.updateAnnouncement({
     gameId, announcementId, rateUp, rateDown,
   }, (err, data) => {
