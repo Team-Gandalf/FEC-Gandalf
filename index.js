@@ -1,11 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./database/index.js');
 
 const app = express();
-
-const port = 8080;
 
 app.use(bodyParser.json());
 
@@ -25,7 +24,14 @@ app.get('/randomGame', (req, res) => {
 });
 
 app.get('/getGame', (req, res) => {
-  const { _id } = req.query;
+  let { _id } = req.query;
+
+  // workaround for a supertest GET request
+  // supertest query data is stored at req.body
+  if (_id === undefined) {
+    _id = req.body._id;
+  }
+
   db.getGame({ _id }, (err, data) => {
     if (err) {
       console.error('ERROR: ', err);
@@ -36,7 +42,7 @@ app.get('/getGame', (req, res) => {
   });
 });
 
-app.put('/updateLikes', (req, res) => {
+app.patch('/updateLikes', (req, res) => {
   const {
     gameId, announcementId, rateUp, rateDown,
   } = req.body;
@@ -59,6 +65,10 @@ app.put('/updateLikes', (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Serving is now listening on port: ${port}`);
-});
+// const port = 8080;
+
+// app.listen(port, () => {
+//   console.log(`Serving is now listening on port: ${port}`);
+// });
+
+module.exports = app;
