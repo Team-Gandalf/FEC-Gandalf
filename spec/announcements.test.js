@@ -4,21 +4,9 @@
 import React from 'react';
 import { mount, shallow, render } from 'enzyme';
 import App from '../client/components/App';
+import Announcements from '../client/components/Announcements';
 
-// require('regenerator-runtime/runtime');
-
-// const mongoose = require('mongoose');
-// const supertest = require('supertest');
-
-// const database = 'fec';
-// const app = require('../index.js');
-
-// const request = supertest(app); // this is now essentially the server for testing
-
-// beforeAll(async () => {
-//   const url = `mongodb://127.0.0.1/${database}`;
-//   await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-// });
+const game = require('./game.js');
 
 describe('App Component', () => {
   it('should render the App component correctly', () => {
@@ -26,11 +14,8 @@ describe('App Component', () => {
     expect(component).toMatchSnapshot();
   });
 
-  // it('should render the App component correctly with a given game', async (done) => {
-  //   const res = await request.get('/randomGame');
-  //   const randomGame = res.body;
-  //   const component = shallow(<App game={randomGame} />);
-  //   expect(component).toMatchSnapshot();
-  //   done();
-  // });
+  it('should render the App component correctly with a given game', () => {
+    const component = shallow(<App game={game} />);
+    expect(component).toMatchSnapshot();
+  });
 });
