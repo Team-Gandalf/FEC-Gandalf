@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
@@ -65,10 +66,12 @@ module.exports = {
       }
     });
   },
-  getAnnouncement: ({
-    gameId, announcementId, rateUp, rateDown,
+  updateAnnouncement: ({
+    announcementId, rateUp, rateDown,
   }, callback) => {
-    Game.findOneAndUpdate({ 'announcements._id': announcementId }, { $set: { 'announcements.$.rateUp': rateUp, 'announcements.$.rateDown': rateDown }, $inc: {'announcements.$.likes': 1 } }, (err, data) => {
+    let value;
+    (rateUp) ? value = 1 : value = -1;
+    Game.findOneAndUpdate({ 'announcements._id': announcementId }, { $set: { 'announcements.$.rateUp': rateUp, 'announcements.$.rateDown': rateDown }, $inc: {'announcements.$.likes': value } }, (err, data) => {
       if (err) {
         callback(err);
       } else {

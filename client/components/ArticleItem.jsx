@@ -125,13 +125,12 @@ const ArticleItem = (props) => {
               </div>
             </div>
             <div id="user-rating">
-              <div id="rate-up">
+              <div id="rate-up" onClick={like}>
                 <img
                   id="discussion-thumbs-up"
                   src="../img/discussion-thumbs-up.png"
                   alt=""
                   style={rateUpStyle}
-                  onClick={like}
                 />
                 &nbsp;Rate Up
               </div>
