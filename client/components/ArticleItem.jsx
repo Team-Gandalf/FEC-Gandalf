@@ -8,7 +8,25 @@ const stopBubble = (e) => {
 };
 
 const ArticleItem = (props) => {
-  const { announcement, name } = props;
+  const { announcement, game, name } = props;
+  const {
+    rateUp, rateDown, likes, commentCount,
+  } = announcement;
+
+  const rateDownStyle = {
+    filter: 'none',
+  };
+  const rateUpStyle = {
+    filter: 'none',
+  };
+
+  if (rateDown === true) {
+    rateDownStyle.filter = 'invert(30%) sepia(100%) saturate(5049%) hue-rotate(330deg) brightness(90%) contrast(100%)';
+  }
+
+  if (rateUp === true) {
+    rateUpStyle.filter = 'invert(7%) sepia(55%) saturate(3000%) hue-rotate(70deg) brightness(90%) contrast(100%)';
+  }
 
   const weekdays = {
     1: 'Monday',
@@ -75,23 +93,33 @@ const ArticleItem = (props) => {
             <div id="rate-count">
               <img src="../img/thumbs-up-blue.png" alt="" id="blue-thumb" />
               <div id="count">
-                1,111
+                {likes}
               </div>
             </div>
             <div id="user-rating">
               <div id="rate-up">
-                <img id="discussion-thumbs-up" src="../img/discussion-thumbs-up.png" alt="" />
+                <img
+                  id="discussion-thumbs-up"
+                  src="../img/discussion-thumbs-up.png"
+                  alt=""
+                  style={rateUpStyle}
+                />
                 &nbsp;Rate Up
               </div>
               <div id="rate-down">
-                <img id="discussion-thumbs-down" src="../img/discussion-thumbs-up.png" alt="" />
+                <img
+                  id="discussion-thumbs-down"
+                  src="../img/discussion-thumbs-up.png"
+                  alt=""
+                  style={rateDownStyle}
+                />
               </div>
             </div>
           </div>
           <div id="interactions-comments">
             <img src="../img/blue-bubble.png" alt="" className="blue-bubble" />
-&nbsp;
-            <span id="comment-count">111</span>
+            &nbsp;
+            <span id="comment-count">{commentCount}</span>
             <span id="discuss-text">Discuss</span>
           </div>
           <div id="interactions-share">

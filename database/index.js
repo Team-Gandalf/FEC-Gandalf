@@ -21,6 +21,10 @@ const announcementsSchema = new Schema({
   category: String,
   url: String,
   thumbnailUrl: String,
+  rateUp: Boolean,
+  rateDown: Boolean,
+  commentCount: Number,
+  likes: Number,
 });
 
 const commentSchema = new Schema({
@@ -34,13 +38,8 @@ const gameSchema = new Schema({
   name: { type: String, unique: true },
   image: String,
   title: String,
-  likes: Number,
-  commentCount: Number,
   announcements: [announcementsSchema],
-  comments: [commentSchema],
   url: String,
-  rateUp: Boolean,
-  rateDown: Boolean,
 });
 
 const Game = mongoose.model('games', gameSchema);

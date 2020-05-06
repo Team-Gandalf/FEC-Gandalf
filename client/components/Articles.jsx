@@ -27,6 +27,7 @@ const Articles = (props) => {
         </div>
         {collection.map((announcement) => (
           <ArticleItem
+            game={game}
             name={name}
             announcement={announcement}
             key={announcement._id}
