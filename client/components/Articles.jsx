@@ -7,7 +7,7 @@ import React, { useEffect } from 'react';
 import ArticleItem from './ArticleItem.jsx';
 
 const Articles = (props) => {
-  const { game, toggleArticles, scroll } = props;
+  const { game, toggleArticles, scroll, updateLikes } = props;
   const { name } = game;
   const collection = game.announcements;
   collection.sort((a, b) => (new Date(b.postDate)) - (new Date(a.postDate)));
@@ -31,6 +31,7 @@ const Articles = (props) => {
             name={name}
             announcement={announcement}
             key={announcement._id}
+            updateLikes={updateLikes}
           />
         ))}
       </div>

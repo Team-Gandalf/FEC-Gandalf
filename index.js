@@ -36,6 +36,12 @@ app.get('/getGame', (req, res) => {
   });
 });
 
+app.put('/updateLikes', (req, res) => {
+  const { _id, rateUp, rateDown } = req.body;
+  console.log(_id, rateUp, rateDown);
+  res.end();
+});
+
 app.listen(port, () => {
   console.log(`Serving is now listening on port: ${port}`);
 });

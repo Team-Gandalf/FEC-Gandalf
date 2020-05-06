@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
@@ -8,7 +10,9 @@ const stopBubble = (e) => {
 };
 
 const ArticleItem = (props) => {
-  const { announcement, game, name } = props;
+  const {
+    announcement, game, name, updateLikes,
+  } = props;
   const {
     rateUp, rateDown, likes, commentCount,
   } = announcement;
@@ -57,6 +61,28 @@ const ArticleItem = (props) => {
   const month = months[new Date(announcement.postDate).getMonth()];
   const monthDay = new Date(announcement.postDate).getDate();
 
+  const updateRate = (action) => {
+    if (action === 'like') {
+      if (rateUp === null || rateDown === true) {
+        updateLikes({ rateUp: true, rateDown: false }, game._id);
+      }
+    }
+
+    if (action === 'dislike') {
+      if (rateDown === null || rateUp === true) {
+        updateLikes({ rateUp: false, rateDown: true }, game._id);
+      }
+    }
+  };
+
+  const like = () => {
+    updateRate('like');
+  };
+
+  const dislike = () => {
+    updateRate('dislike');
+  };
+
   return (
     <div id="article-item" onClick={(e) => { stopBubble(e); }}>
       <div className="article-item-thumbnail-container">
@@ -103,6 +129,7 @@ const ArticleItem = (props) => {
                   src="../img/discussion-thumbs-up.png"
                   alt=""
                   style={rateUpStyle}
+                  onClick={like}
                 />
                 &nbsp;Rate Up
               </div>
@@ -112,6 +139,7 @@ const ArticleItem = (props) => {
                   src="../img/discussion-thumbs-up.png"
                   alt=""
                   style={rateDownStyle}
+                  onClick={dislike}
                 />
               </div>
             </div>
