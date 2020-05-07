@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-undef */
+require('regenerator-runtime/runtime');
 const mongoose = require('mongoose');
 const supertest = require('supertest');
 

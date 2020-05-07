@@ -15,7 +15,7 @@ module.exports = {
   // cacheDirectory: "/private/var/folders/2n/2k1vlhvj7y1d2q6c7k0tkxg80000gn/T/jest_dx",
 
   // Automatically clear mock calls and instances between every test
-  clearMocks: true,
+  // clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -24,7 +24,7 @@ module.exports = {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  // coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -94,7 +94,28 @@ module.exports = {
   // preset: undefined,
 
   // Run tests from one or more projects
-  // projects: undefined,
+  projects: [
+    {
+      clearMocks: true,
+      coverageDirectory: "coverage",
+      displayName: "backend",
+      testEnvironment: "node",
+      testMatch: [
+        '<rootDir>/index.test.js',
+      ],
+    },
+    // {
+    //   clearMocks: true,
+    //   coverageDirectory: "coverage",
+    //   displayName: "frontend",
+    //   setupFiles: ["./spec/setupTests.js"],
+    //   snapshotSerializers: ["enzyme-to-json/serializer"],
+    //   testEnvironment: "jsdom",
+    //   testMatch: [
+    //     '<rootDir>/client/spec/announcements.test.js',
+    //   ],
+    // },
+  ],
 
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,
@@ -132,7 +153,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "node",
+  // testEnvironment: "node",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
