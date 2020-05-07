@@ -5,11 +5,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const stopBubble = (e) => {
-  e.stopPropagation();
-};
-
-
 const ArticleItem = (props) => {
 
   const {
@@ -62,6 +57,10 @@ const ArticleItem = (props) => {
   const day = weekdays[new Date(announcement.postDate).getDay()];
   const month = months[new Date(announcement.postDate).getMonth()];
   const monthDay = new Date(announcement.postDate).getDate();
+
+  const stopBubble = (e) => {
+    e.stopPropagation();
+  };
 
   const updateRate = (action) => {
     if (action === 'like') {
