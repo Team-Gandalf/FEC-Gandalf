@@ -16,8 +16,9 @@ const { name } = game;
 
 describe('App', () => {
   it('should render the App component', () => {
-    const component = shallow(<App />);
+    const component = mount(<App />);
     expect(component.find('#App-container').exists()).toBe(true);
+    component.unmount();
   });
 
   it('should render the App component correctly with an announcement item', () => {

@@ -95,22 +95,22 @@ module.exports = {
 
   // Run tests from one or more projects
   projects: [
-    // {
-    //   clearMocks: true,
-    //   coverageDirectory: "coverage",
-    //   displayName: "backend",
-    //   testEnvironment: "node",
-    //   testMatch: [
-    //     '<rootDir>/index.test.js',
-    //   ],
-    // },
     {
       clearMocks: true,
-      coverageDirectory: "coverage",
-      displayName: "frontend",
-      setupFiles: ["./spec/setupTests.js"],
-      snapshotSerializers: ["enzyme-to-json/serializer"],
-      testEnvironment: "jsdom",
+      coverageDirectory: 'coverage',
+      displayName: 'backend',
+      testEnvironment: 'node',
+      testMatch: [
+        '<rootDir>/index.test.js',
+      ],
+    },
+    {
+      clearMocks: true,
+      coverageDirectory: 'coverage',
+      displayName: 'frontend',
+      setupFiles: ['./spec/setupTests.js'],
+      snapshotSerializers: ['enzyme-to-json/serializer'],
+      testEnvironment: 'jsdom',
       testMatch: [
         '<rootDir>/spec/announcements.test.js',
       ],
