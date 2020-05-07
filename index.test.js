@@ -49,7 +49,7 @@ describe('test if the server is functioning properly', () => {
   test('should successfully update a user like for a specific announcement', async (done) => { // using async
     const res = await request.patch('/updateLikes').set('accept', /json/).send({
       gameId: '5eb23f22086cf5841ff73034', announcementId: '5eb23f22086cf5841ff73035', rateUp: false, rateDown: true,
-    }); // WHERE IS THE DOC FOR THIS?
+    });
     expect(res.body._id).toBe('5eb23f22086cf5841ff73034');
     expect(res.body.announcements[0]._id).toBe('5eb23f22086cf5841ff73035');
     expect(res.body.announcements[0].rateUp).toBe(false);

@@ -84,7 +84,7 @@ const App = () => {
   }, []); // empty array as dependency required to stop infinite loop
 
   return (
-    <div>
+    <div id="App-container">
       <div id="Announcements" className="events">
         <Announcements game={game} item={eventItem} toggleArticles={toggleArticles} kind="event" />
       </div>

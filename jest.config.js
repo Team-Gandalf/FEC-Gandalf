@@ -97,24 +97,24 @@ module.exports = {
   projects: [
     {
       clearMocks: true,
-      coverageDirectory: "coverage",
-      displayName: "backend",
-      testEnvironment: "node",
+      coverageDirectory: 'coverage',
+      displayName: 'backend',
+      testEnvironment: 'node',
       testMatch: [
         '<rootDir>/index.test.js',
       ],
     },
-    // {
-    //   clearMocks: true,
-    //   coverageDirectory: "coverage",
-    //   displayName: "frontend",
-    //   setupFiles: ["./spec/setupTests.js"],
-    //   snapshotSerializers: ["enzyme-to-json/serializer"],
-    //   testEnvironment: "jsdom",
-    //   testMatch: [
-    //     '<rootDir>/client/spec/announcements.test.js',
-    //   ],
-    // },
+    {
+      clearMocks: true,
+      coverageDirectory: 'coverage',
+      displayName: 'frontend',
+      setupFiles: ['./spec/setupTests.js'],
+      snapshotSerializers: ['enzyme-to-json/serializer'],
+      testEnvironment: 'jsdom',
+      testMatch: [
+        '<rootDir>/spec/announcements.test.js',
+      ],
+    },
   ],
 
   // Use this configuration option to add custom reporters to Jest
