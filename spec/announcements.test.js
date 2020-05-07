@@ -33,6 +33,11 @@ describe('Announcements', () => {
     const component = shallow(<Announcements game={game} item={eventItem} />);
     expect(component.find('#main-container').exists()).toBe(true);
   });
+
+  it('should render the Announcements component with an empty game object', () => {
+    const component = shallow(<Announcements game={{}} item={eventItem} />);
+    expect(component.find('.empty').exists()).toBe(true);
+  });
 });
 
 describe('Overlay', () => {

@@ -60,7 +60,7 @@ const Announcements = (props) => {
 
   // DOES NOT RENDER UNTIL THE INITIAL GET REQUEST IS COMPLETE
   if (game.announcements === undefined) {
-    return (<span> </span>);
+    return (<span className="empty"> </span>);
   }
 
   return (
