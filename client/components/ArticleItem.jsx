@@ -3,10 +3,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 
 const ArticleItem = (props) => {
-
   const {
     announcement, game, name, updateLikes,
   } = props;
@@ -84,6 +83,21 @@ const ArticleItem = (props) => {
     updateRate('dislike');
   };
 
+  const [showShare, setShowShare] = useState(false);
+
+  const toggleShare = () => {
+    setShowShare(!showShare);
+  };
+
+  const copyToClipBoard = () => {
+    const el = document.createElement('textarea');
+    el.value = announcement.url;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  };
+
   return (
     <div id="article-item" onClick={stopBubble}>
       <div className="article-item-thumbnail-container">
@@ -150,9 +164,15 @@ const ArticleItem = (props) => {
             <span id="comment-count">{commentCount}</span>
             <span id="discuss-text">Discuss</span>
           </div>
-          <div id="interactions-share">
+          <div id="interactions-share" onClick={toggleShare}>
             <img src="../img/share-logo.png" alt="" id="share-icon" />
             <span id="share-text">Share</span>
+            {(showShare) ? (
+              <div id="share-link">
+                <div id="link">{announcement.url}</div>
+                <button type="submit" id="copy" onClick={copyToClipBoard}>Copy link</button>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
