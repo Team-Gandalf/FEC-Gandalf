@@ -210,6 +210,7 @@ div#interactions-share {
   margin-right: 2em;
   cursor: pointer;
   border: 1px solid #2b598ab5;
+  position: relative;
 }
 
 div#interaction-ratings {
@@ -378,4 +379,38 @@ img#mini-view-thumbnail {
 
 .announcements {
   margin-left: 0.5rem;
+}
+
+div#share-link {
+  position: absolute;
+  top: -3rem;
+  width: 15rem;
+  color: white;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "link button";
+  align-content: center;
+  background: #2b2d32;
+  height: 2rem;
+  border: 1px solid #274d73;
+  font-size: 1.5em;
+}
+
+div#link {
+  display: flex;
+  align-items: center;
+  grid-area: link;
+  justify-content: center;
+}
+
+button#copy {
+  grid-area: button;
+  background: #4d9bec;
+  margin-right: 10%;
+  font-weight: 700;
+  height: 1.75em;
+  border-radius: 0.75em;
+  width: 5em;
+  border: none;
+  color: white;
 }
