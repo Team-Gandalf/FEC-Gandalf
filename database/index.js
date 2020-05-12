@@ -73,6 +73,27 @@ module.exports = {
   }, callback) => {
     let value;
     (rateUp) ? value = 1 : value = -1;
+
+    if (rateUp === 'reset') {
+      value = -1;
+      rateUp = null;
+    }
+
+    if (rateDown === 'reset') {
+      value = 1;
+      rateDown = null;
+    }
+
+    if (rateDown === 'doubleReset') {
+      value = 2;
+      rateDown = null;
+    }
+
+    if (rateUp === 'doubleReset') {
+      value = -2;
+      rateUp = null;
+    }
+
     Game.findOneAndUpdate(
       { 'announcements._id': announcementId },
       {
