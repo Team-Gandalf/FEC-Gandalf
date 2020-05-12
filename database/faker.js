@@ -48,11 +48,11 @@ const createFakeData = () => {
   const allAnnouncements = produceAnnouncements();
 
   const data = {
-    gameNumber: counter,
     name: faker.lorem.words().slice(0, 30),
     image: faker.image.image(),
     announcements: allAnnouncements,
     url: faker.internet.url(),
+    gameNumber: counter,
   };
   return data;
 };
