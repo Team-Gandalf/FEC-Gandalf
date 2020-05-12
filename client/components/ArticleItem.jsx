@@ -64,13 +64,13 @@ const ArticleItem = (props) => {
   const updateRate = (action) => {
     if (action === 'like') {
       if (rateUp === null || rateDown === true) {
-        updateLikes({ rateUp: true, rateDown: false }, game._id, announcement._id);
+        updateLikes({ rateUp: true, rateDown: false }, game.gameNumber, announcement._id);
       }
     }
 
     if (action === 'dislike') {
       if (rateDown === null || rateUp === true) {
-        updateLikes({ rateUp: false, rateDown: true }, game._id, announcement._id);
+        updateLikes({ rateUp: false, rateDown: true }, game.gameNumber, announcement._id);
       }
     }
   };
