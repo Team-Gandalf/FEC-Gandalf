@@ -63,14 +63,30 @@ const ArticleItem = (props) => {
 
   const updateRate = (action) => {
     if (action === 'like') {
-      if (rateUp === null || rateDown === true) {
-        updateLikes({ rateUp: true, rateDown: false }, game.gameNumber, announcement._id);
+      if (rateUp === true) { // reset like to neutral
+        updateLikes({ rateUp: 'reset', rateDown: null }, game.gameNumber, announcement._id);
+      }
+      if (rateUp === null || rateUp === false) {
+        if (rateDown === null) {
+          updateLikes({ rateUp: true, rateDown: null }, game.gameNumber, announcement._id);
+        }
+        if (rateDown === true) {
+          updateLikes({ rateUp: true, rateDown: 'doubleReset' }, game.gameNumber, announcement._id);
+        }
       }
     }
 
     if (action === 'dislike') {
-      if (rateDown === null || rateUp === true) {
-        updateLikes({ rateUp: false, rateDown: true }, game.gameNumber, announcement._id);
+      if (rateDown === true) { // reset dislike to neutral
+        updateLikes({ rateUp: null, rateDown: 'reset' }, game.gameNumber, announcement._id);
+      }
+      if (rateDown === null || rateDown === false) {
+        if (rateUp === null) {
+          updateLikes({ rateUp: null, rateDown: true }, game.gameNumber, announcement._id);
+        }
+        if (rateUp === true) {
+          updateLikes({ rateUp: 'doubleReset', rateDown: true }, game.gameNumber, announcement._id);
+        }
       }
     }
   };
