@@ -42,15 +42,15 @@ app.get('/getGame', (req, res) => {
 
 app.patch('/updateLikes', (req, res) => {
   const {
-    gameId, announcementId, rateUp, rateDown,
+    gameNumber, announcementId, rateUp, rateDown,
   } = req.body;
   db.updateAnnouncement({
-    gameId, announcementId, rateUp, rateDown,
+    gameNumber, announcementId, rateUp, rateDown,
   }, (err, data) => {
     if (err) {
       res.send(400);
     } else {
-      db.getGame({ _id: gameId }, (err, data) => {
+      db.getGame({ _id: gameNumber }, (err, data) => {
         if (err) {
           res.send(400);
         } else {

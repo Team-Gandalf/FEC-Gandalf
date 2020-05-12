@@ -47,10 +47,10 @@ const App = () => {
       });
   };
 
-  const updateLikes = (changes, gameId, announcementId) => {
+  const updateLikes = (changes, gameNumber, announcementId) => {
     const { rateUp, rateDown } = changes;
     axios.patch('/updateLikes', {
-      gameId,
+      gameNumber,
       announcementId,
       rateUp,
       rateDown,
