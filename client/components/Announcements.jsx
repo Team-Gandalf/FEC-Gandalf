@@ -17,13 +17,13 @@ const Announcements = (props) => {
   };
 
   const weekdays = {
+    0: 'Sunday',
     1: 'Monday',
     2: 'Tuesday',
     3: 'Wednesday',
     4: 'Thursday',
     5: 'Friday',
     6: 'Saturday',
-    7: 'Sunday',
   };
 
   const months = {
@@ -43,6 +43,7 @@ const Announcements = (props) => {
 
   const parseDate = (date) => {
     const parsed = new Date(date);
+    console.log('PARSED IS: ', parsed.getDay());
     const day = weekdays[parsed.getDay()].slice(0, 3);
     const month = months[parsed.getMonth()];
     const monthDay = parsed.getDate();
