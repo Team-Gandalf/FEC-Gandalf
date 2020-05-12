@@ -36,6 +36,7 @@ const commentSchema = new Schema({
 
 
 const gameSchema = new Schema({
+  gameNumber: { type: Number, required: true },
   name: { type: String, unique: true },
   image: String,
   title: String,
@@ -71,7 +72,7 @@ module.exports = {
   }, callback) => {
     let value;
     (rateUp) ? value = 1 : value = -1;
-    Game.findOneAndUpdate({ 'announcements._id': announcementId }, { $set: { 'announcements.$.rateUp': rateUp, 'announcements.$.rateDown': rateDown }, $inc: {'announcements.$.likes': value } }, (err, data) => {
+    Game.findOneAndUpdate({ 'announcements._id': announcementId }, { $set: { 'announcements.$.rateUp': rateUp, 'announcements.$.rateDown': rateDown }, $inc: { 'announcements.$.likes': value } }, (err, data) => {
       if (err) {
         callback(err);
       } else {
