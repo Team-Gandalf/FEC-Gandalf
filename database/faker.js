@@ -16,6 +16,7 @@ const thumbnails = [
 ];
 
 const filler = { 0: 'event', 1: 'announcement' };
+let counter = 1;
 
 const announcementsCount = Math.floor(Math.random() * 10);
 const produceAnnouncements = () => {
@@ -31,7 +32,7 @@ const produceAnnouncements = () => {
       title: faker.lorem.sentence().slice(0, 50),
       postDate: faker.date.recent(),
       body: faker.lorem.paragraphs().slice(0, 1000),
-      category: (i <= 1)? filler[i] : categories[randomIndex],
+      category: (i <= 1) ? filler[i] : categories[randomIndex],
       url: faker.internet.url(),
       thumbnailUrl: thumbnails[Math.floor(Math.random() * thumbnails.length)],
       rateUp,
@@ -47,6 +48,7 @@ const createFakeData = () => {
   const allAnnouncements = produceAnnouncements();
 
   const data = {
+    gameNumber: counter,
     name: faker.lorem.words().slice(0, 30),
     image: faker.image.image(),
     announcements: allAnnouncements,
@@ -62,4 +64,5 @@ for (let i = 0; i < 5; i += 1) {
       console.error('ERROR: ', err);
     }
   });
+  counter += 1;
 }
