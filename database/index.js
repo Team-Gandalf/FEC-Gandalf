@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-unused-expressions */
 const mongoose = require('mongoose');
 
@@ -28,11 +29,11 @@ const announcementsSchema = new Schema({
   likes: Number,
 });
 
-const commentSchema = new Schema({
-  username: String,
-  postDate: Date,
-  commentBody: String,
-});
+// const commentSchema = new Schema({
+//   username: String,
+//   postDate: Date,
+//   commentBody: String,
+// });
 
 
 const gameSchema = new Schema({
@@ -59,7 +60,7 @@ module.exports = {
     });
   },
   getGame: ({ _id }, callback) => {
-    Game.findOne({ _id }, (err, data) => {
+    Game.findOne({ gameNumber: _id }, (err, data) => {
       if (err) {
         callback(err);
       } else {
@@ -72,12 +73,23 @@ module.exports = {
   }, callback) => {
     let value;
     (rateUp) ? value = 1 : value = -1;
-    Game.findOneAndUpdate({ 'announcements._id': announcementId }, { $set: { 'announcements.$.rateUp': rateUp, 'announcements.$.rateDown': rateDown }, $inc: { 'announcements.$.likes': value } }, (err, data) => {
-      if (err) {
-        callback(err);
-      } else {
-        callback(null, data);
-      }
-    });
+    Game.findOneAndUpdate(
+      { 'announcements._id': announcementId },
+      {
+        $set:
+        {
+          'announcements.$.rateUp': rateUp,
+          'announcements.$.rateDown': rateDown,
+        },
+        $inc:
+      { 'announcements.$.likes': value },
+      }, (err, data) => {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, data);
+        }
+      },
+    );
   },
 };
