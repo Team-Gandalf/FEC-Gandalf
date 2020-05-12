@@ -41,6 +41,7 @@ app.get('/getGame', (req, res) => {
 });
 
 app.patch('/updateLikes', (req, res) => {
+  console.log('Body of the request: ', req.body);
   const {
     gameNumber, announcementId, rateUp, rateDown,
   } = req.body;
