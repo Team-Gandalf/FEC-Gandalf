@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Overlay from './Overlay.jsx';
 
@@ -43,7 +43,6 @@ const Announcements = (props) => {
 
   const parseDate = (date) => {
     const parsed = new Date(date);
-    console.log('PARSED IS: ', parsed.getDay());
     const day = weekdays[parsed.getDay()].slice(0, 3);
     const month = months[parsed.getMonth()];
     const monthDay = parsed.getDate();

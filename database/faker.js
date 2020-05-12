@@ -57,7 +57,7 @@ const createFakeData = () => {
   return data;
 };
 
-for (let i = 0; i < 5; i += 1) {
+for (let i = 0; i < 100; i += 1) {
   db.Game.create(createFakeData(), (err) => {
     if (err) {
       // eslint-disable-next-line no-console
