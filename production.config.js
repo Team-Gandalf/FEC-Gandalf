@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // webpack.config.js
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
@@ -26,20 +27,20 @@ module.exports = {
           },
         },
       },
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        loader: 'url-loader',
-        options: {
-          // Inline files smaller than 10 kB (10240 bytes)
-          limit: 10 * 1024,
-        },
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/,
-        loader: 'image-webpack-loader',
-        // This will apply the loader before the other ones
-        enforce: 'pre',
-      },
+      // {
+      //   test: /\.(jpe?g|png|gif)$/,
+      //   loader: 'url-loader',
+      //   options: {
+      //     // Inline files smaller than 10 kB (10240 bytes)
+      //     limit: 10 * 1024,
+      //   },
+      // },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/,
+      //   loader: 'image-webpack-loader',
+      //   // This will apply the loader before the other ones
+      //   enforce: 'pre',
+      // },
     ],
   },
 };
