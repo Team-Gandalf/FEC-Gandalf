@@ -9,6 +9,8 @@ import axios from 'axios';
 import Announcements from './Announcements.jsx';
 import Articles from './Articles.jsx';
 
+import { EventService, AnnouncementService } from './StyledComponents.jsx';
+
 const App = () => {
   const [showArticles, setShowArticles] = useState(false);
   const [game, setGame] = useState({});
@@ -84,14 +86,14 @@ const App = () => {
   }, []); // empty array as dependency required to stop infinite loop
 
   return (
-    <div id="App-container">
-      <div id="Announcements" className="events">
+    <div>
+      <EventService>
         <Announcements game={game} item={eventItem} toggleArticles={toggleArticles} kind="event" />
-      </div>
-      <div id="Announcements" className="announcements">
+      </EventService>
+      <AnnouncementService>
         <Announcements game={game} item={announcementItem} toggleArticles={toggleArticles} kind="announcement" />
-      </div>
-      <div id="article-modal">
+      </AnnouncementService>
+      <div>
         {(showArticles)
           ? (
             <Articles
