@@ -30,6 +30,7 @@ import {
   ShareLink,
   Link,
   Copy,
+  CopyText,
 } from './StyledComponents.jsx';
 
 const ArticleItem = (props) => {
@@ -222,7 +223,7 @@ const ArticleItem = (props) => {
             {(showShare) ? (
               <ShareLink>
                 <Link>{announcement.url}</Link>
-                <Copy type="submit" onClick={copyToClipBoard}>Copy link</Copy>
+                <Copy type="submit" onClick={copyToClipBoard}><CopyText>Copy link</CopyText></Copy>
               </ShareLink>
             ) : null}
           </InteractionsShare>

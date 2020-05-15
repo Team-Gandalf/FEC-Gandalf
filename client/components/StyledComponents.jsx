@@ -371,4 +371,10 @@ export const DiscussText = styles.span`
   padding-right: .5rem;
 `;
 
+export const CopyText = styles.span`
+  font-size: 0.7em;
+  align-content: center;
+  display: grid;
+`;
+
 // export { EventService, AnnouncementService };
