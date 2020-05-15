@@ -5,6 +5,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import ArticleItem from './ArticleItem.jsx';
+import { ArticlesWrapper, ArticleItemArea } from './StyledComponents.jsx';
 
 const Articles = (props) => {
   const {
@@ -20,13 +21,8 @@ const Articles = (props) => {
   }), []);
 
   return (
-    <div id="articles" onClick={toggleArticles}>
-      <div id="article-item-area">
-        <div id="scroll-buttons">
-          <svg width="50" height="50">
-            <circle r="20" fill="orange" />
-          </svg>
-        </div>
+    <ArticlesWrapper onClick={toggleArticles}>
+      <ArticleItemArea>
         {collection.map((announcement) => (
           <ArticleItem
             game={game}
@@ -36,8 +32,8 @@ const Articles = (props) => {
             updateLikes={updateLikes}
           />
         ))}
-      </div>
-    </div>
+      </ArticleItemArea>
+    </ArticlesWrapper>
   );
 };
 

@@ -1,9 +1,11 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import { ArticleItemStyle, ArticleItemThumbnailContainer, ArticleItemThumbnail } from './StyledComponents.jsx';
 
 const ArticleItem = (props) => {
   const {
@@ -115,10 +117,10 @@ const ArticleItem = (props) => {
   };
 
   return (
-    <div id="article-item" onClick={stopBubble}>
-      <div className="article-item-thumbnail-container">
-        <img alt="thumbnail" src={announcement.thumbnailUrl} className="article-item-thumbnail" />
-      </div>
+    <ArticleItemStyle onClick={stopBubble}>
+      <ArticleItemThumbnailContainer>
+        <ArticleItemThumbnail alt="thumbnail" src={announcement.thumbnailUrl} />
+      </ArticleItemThumbnailContainer>
       <div className="article-item-title">
         <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background-title" />
         <div className="title-info">
@@ -192,7 +194,7 @@ const ArticleItem = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </ArticleItemStyle>
   );
 };
 

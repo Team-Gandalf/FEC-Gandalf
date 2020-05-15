@@ -15,7 +15,6 @@ const App = () => {
   const [showArticles, setShowArticles] = useState(false);
   const [game, setGame] = useState({});
   const [scroll, setScroll] = useState('');
-  // eslint-disable-next-line no-undef
   const directUrlInput = window.location.search.slice(2);
 
   const toggleArticles = (input) => {
