@@ -159,10 +159,10 @@ div#thumbnail {
   box-shadow: 0px 0px 5px #1d1e21;
   z-index: 9;
   position: relative;
-  overflow: hidden; */
-}
+  overflow: hidden;
+}*/
 
-.article-item-interactions {
+/* .article-item-interactions {
   background: #3d4148;
   display: flex;
   flex-flow: row;
@@ -173,18 +173,18 @@ div#thumbnail {
   height: 75%;
   z-index: 11;
   box-shadow: 0px 0px 5px #1d1e21;
-}
+} */
 
-div#interactions-inner {
+/* div#interactions-inner {
   display: inline-flex;
   flex-flow: row;
   box-sizing: content-box;
   height: 60%;
   width: 100%;
   align-items: center;
-}
+} */
 
-div#interactions-share {
+/* div#interactions-share {
   display: inline-flex;
   flex-flow: row;
   background: #2b2d33;
@@ -197,9 +197,9 @@ div#interactions-share {
   cursor: pointer;
   border: 1px solid #2b598ab5;
   position: relative;
-}
+} */
 
-div#interaction-ratings {
+/* div#interaction-ratings {
   align-items: center;
   background: #2b2d33;
   display: inline-flex;
@@ -211,9 +211,9 @@ div#interaction-ratings {
   color: #4d9bec;
   margin-left: 1em;
   border: 1px solid #2b598ab5;
-}
+} */
 
-div#interactions-comments {
+/* div#interactions-comments {
   align-items: center;
   background: #2b2d33;
   display: inline-flex;
@@ -224,36 +224,35 @@ div#interactions-comments {
   font-weight: 700;
   margin-left: 2em;
   border: 1px solid #2b598ab5;
-}
+} */
 
-img#blue-thumb {
+/* img#blue-thumb {
   display: inline-flex;
   height: 1.5em;
-}
+} */
 
-div#count {
+/* div#count {
   margin-left: 5%;
-}
+} */
 
-#discussion-thumbs-up {
+/* #discussion-thumbs-up {
   height: 1.2em;
-}
+} */
 
-#discussion-thumbs-down {
+/* #discussion-thumbs-down {
   height: 1.2em;
   transform: rotate(180deg);
   cursor: pointer;
-}
-#discussion-thumbs-down:hover {
+} */
+
+/* #discussion-thumbs-down:hover {
   height: 1.2em;
   transform: rotate(180deg);
   cursor: pointer;
   filter: invert(30%) sepia(100%) saturate(5049%) hue-rotate(330deg) brightness(90%) contrast(100%);
-}
+} */
 
-#rate-up,
-#discuss-text,
-#share-text {
+#discuss-text {
   color: #ffffff;
   display: flex;
   justify-content: center;
@@ -266,46 +265,46 @@ div#count {
   padding-right: .5rem;
 }
 
-#share-text {
+/* #share-text {
   font-size: 2em;
-}
+} */
 
-div#rate-count {
+/* div#rate-count {
   display: flex;
   align-items: center;
-}
+} */
 
-div#rate-down {
+/* div#rate-down {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: .9em;
   height: 50%;
   text-shadow: 2px 2px 5px #0c0707;
-}
-
+} */
+/*
 div#user-rating {
   display: inline-flex;
   width: 60%;
   justify-content: space-evenly;
-}
+} */
 
-img.blue-bubble {
+/* img.blue-bubble {
   display: inline-flex;
   height: 1.5em;
   padding-left: .5rem;
-}
+} */
 
-#comment-count {
+/* #comment-count {
   font-size: 1em;
   color: #4d9bec;
   padding-right: 1rem;
-}
+} */
 
-#share-icon{
+/* #share-icon{
   display: inline-flex;
   height: 3em;
-}
+} */
 
 /* span.announcement-title {
   font-size: 3em;
@@ -367,7 +366,7 @@ img#mini-view-thumbnail {
   margin-left: 0.5rem;
 }
 
-div#share-link {
+/* div#share-link {
   position: absolute;
   top: -3rem;
   width: 15rem;
@@ -380,14 +379,14 @@ div#share-link {
   height: 2rem;
   border: 1px solid #274d73;
   font-size: 1.5em;
-}
+} */
 
-div#link {
+/* div#link {
   display: flex;
   align-items: center;
   grid-area: link;
   justify-content: center;
-}
+} */
 
 button#copy {
   grid-area: button;

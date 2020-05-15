@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable import/extensions */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -14,6 +15,20 @@ import {
   TitleInfo,
   TitleInfoCategory,
   ArticleItemBody,
+  BlurBackground,
+  ArticleItemIteractions,
+  InteractionsInner,
+  InteractionsRatings,
+  DiscussionThumbsDown,
+  RateDown,
+  RateUp,
+  InteractionsComments,
+  CommentCount,
+  InteractionsShare,
+  ShareText,
+  ShareLink,
+  Link,
+  Copy,
 } from './StyledComponents.jsx';
 
 const ArticleItem = (props) => {
@@ -28,6 +43,7 @@ const ArticleItem = (props) => {
     filter: 'none',
   };
   const rateUpStyle = {
+    height: '1.2em',
     filter: 'none',
   };
 
@@ -152,20 +168,20 @@ const ArticleItem = (props) => {
         <span style={{ fontSize: '3em' }}>{announcement.title}</span>
       </ArticleItemTitle>
       <ArticleItemBody>
-        <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" id={announcement._id} />
+        <BlurBackground src={announcement.thumbnailUrl} id={announcement._id} />
         {announcement.body}
       </ArticleItemBody>
-      <div className="article-item-interactions">
-        <div id="interactions-inner">
-          <div id="interaction-ratings">
-            <div id="rate-count">
-              <img src="../img/thumbs-up-blue.png" alt="" id="blue-thumb" />
-              <div id="count">
+      <ArticleItemIteractions>
+        <InteractionsInner>
+          <InteractionsRatings>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <img src="../img/thumbs-up-blue.png" alt="" style={{ display: 'inline-flex', height: '1.5em' }} />
+              <div style={{ marginLeft: '5%' }}>
                 {likes}
               </div>
             </div>
-            <div id="user-rating">
-              <div id="rate-up" onClick={like}>
+            <div style={{ display: 'inline-flex', width: '60%', justifyContent: 'space-evenly' }}>
+              <RateUp onClick={like}>
                 <img
                   id="discussion-thumbs-up"
                   src="../img/discussion-thumbs-up.png"
@@ -173,36 +189,45 @@ const ArticleItem = (props) => {
                   style={rateUpStyle}
                 />
                 &nbsp;Rate Up
-              </div>
-              <div id="rate-down">
-                <img
-                  id="discussion-thumbs-down"
+              </RateUp>
+              <RateDown>
+                <DiscussionThumbsDown
                   src="../img/discussion-thumbs-up.png"
                   alt=""
                   style={rateDownStyle}
                   onClick={dislike}
                 />
-              </div>
+              </RateDown>
             </div>
-          </div>
-          <div id="interactions-comments">
-            <img src="../img/blue-bubble.png" alt="" className="blue-bubble" />
+          </InteractionsRatings>
+          <InteractionsComments>
+            <img
+              src="../img/blue-bubble.png"
+              alt=""
+              style={{
+                display: 'inline-flex',
+                height: '1.5em',
+                paddingLeft: '.5rem',
+              }}
+            />
             &nbsp;
-            <span id="comment-count">{commentCount}</span>
+            <CommentCount>
+              {commentCount}
+            </CommentCount>
             <span id="discuss-text">Discuss</span>
-          </div>
-          <div id="interactions-share" onClick={toggleShare}>
-            <img src="../img/share-logo.png" alt="" id="share-icon" />
-            <span id="share-text">Share</span>
+          </InteractionsComments>
+          <InteractionsShare onClick={toggleShare}>
+            <img src="../img/share-logo.png" alt="" style={{ display: 'inline-flex', height: '3em' }} />
+            <ShareText>Share</ShareText>
             {(showShare) ? (
-              <div id="share-link">
-                <div id="link">{announcement.url}</div>
-                <button type="submit" id="copy" onClick={copyToClipBoard}>Copy link</button>
-              </div>
+              <ShareLink>
+                <Link>{announcement.url}</Link>
+                <Copy type="submit" onClick={copyToClipBoard}>Copy link</Copy>
+              </ShareLink>
             ) : null}
-          </div>
-        </div>
-      </div>
+          </InteractionsShare>
+        </InteractionsInner>
+      </ArticleItemIteractions>
     </ArticleItemStyle>
   );
 };

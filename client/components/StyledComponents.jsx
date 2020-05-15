@@ -155,5 +155,155 @@ export const BlurBackgroundTitle = styles(BlurBackground)`
   transform: scaleX(-1);
 `;
 
+export const ArticleItemIteractions = styles.div`
+  background: #3d4148;
+  display: flex;
+  flex-flow: row;
+  grid-area: interactions;
+  justify-content: flex-start;
+  grid-row: 8 / span 2;
+  align-items: center;
+  height: 75%;
+  z-index: 11;
+  box-shadow: 0px 0px 5px #1d1e21;
+`;
+
+export const InteractionsInner = styles.div`
+  display: inline-flex;
+  flex-flow: row;
+  box-sizing: content-box;
+  height: 60%;
+  width: 100%;
+  align-items: center;
+`;
+
+export const InteractionsRatings = styles.div`
+  align-items: center;
+  background: #2b2d33;
+  display: inline-flex;
+  height: 85%;
+  justify-content: space-evenly;
+  width: 40%;
+  font-size: 2em;
+  font-weight: 700;
+  color: #4d9bec;
+  margin-left: 1em;
+  border: 1px solid #2b598ab5;
+`;
+
+export const RateDown = styles.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .9em;
+  height: 50%;
+  text-shadow: 2px 2px 5px #0c0707;
+`;
+
+export const DiscussionThumbsDown = styles.img`
+  height: 1.2em;
+  transform: rotate(180deg);
+  cursor: pointer;
+  &hover: {
+    height: 1.2em;
+    transform: rotate(180deg);
+    cursor: pointer;
+    filter: invert(30%) sepia(100%) saturate(5049%) hue-rotate(330deg) brightness(90%) contrast(100%);
+  }
+`;
+
+export const RateUp = styles.div`
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 400;
+  cursor: pointer;
+  height: 50%;
+  text-shadow: 2px 2px 5px #0c0707;
+  padding-right: .5rem;
+`;
+
+export const InteractionsComments = styles.div`
+  align-items: center;
+  background: #2b2d33;
+  display: inline-flex;
+  height: 85%;
+  justify-content: center;
+  width: 20%;
+  font-size: 2em;
+  font-weight: 700;
+  margin-left: 2em;
+  border: 1px solid #2b598ab5;
+`;
+
+export const CommentCount = styles.span`
+  font-size: 1em;
+  color: #4d9bec;
+  padding-right: 1rem;
+`;
+
+export const InteractionsShare = styles.div`
+  display: inline-flex;
+  flex-flow: row;
+  background: #2b2d33;
+  height: 85%;
+  width: 15%;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 12em;
+  margin-right: 2em;
+  cursor: pointer;
+  border: 1px solid #2b598ab5;
+  position: relative;
+`;
+
+export const ShareText = styles.span`
+  color: #ffffff;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  cursor: pointer;
+  height: 50%;
+  text-shadow: 2px 2px 5px #0c0707;
+  padding-right: .5rem;
+`;
+
+export const ShareLink = styles.div`
+  position: absolute;
+  top: -3rem;
+  width: 15rem;
+  color: white;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "link button";
+  align-content: center;
+  background: #2b2d32;
+  height: 2rem;
+  border: 1px solid #274d73;
+  font-size: 1.5em;
+`;
+
+export const Link = styles.div`
+  display: flex;
+  align-items: center;
+  grid-area: link;
+  justify-content: center;
+`;
+
+export const Copy = styles.button`
+  grid-area: button;
+  background: #4d9bec;
+  margin-right: 10%;
+  font-weight: 700;
+  height: 1.75em;
+  border-radius: 0.75em;
+  width: 5em;
+  border: none;
+  color: white;
+`;
 
 // export { EventService, AnnouncementService };
