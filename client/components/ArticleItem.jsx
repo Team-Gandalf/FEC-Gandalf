@@ -33,6 +33,8 @@ import {
   CopyText,
 } from './StyledComponents.jsx';
 
+const s3img = 'https://steamy-announcements.s3.us-east-2.amazonaws.com/img/';
+
 const ArticleItem = (props) => {
   const {
     announcement, game, name, updateLikes,
@@ -177,7 +179,7 @@ const ArticleItem = (props) => {
         <InteractionsInner>
           <InteractionsRatings>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img src="../img/thumbs-up-blue.png" alt="" style={{ display: 'inline-flex', height: '1.5em' }} />
+              <img src={`${s3img}thumbs-up-blue.png`} alt="" style={{ display: 'inline-flex', height: '1.5em' }} />
               <div style={{ marginLeft: '5%' }}>
                 {likes}
               </div>
@@ -185,7 +187,7 @@ const ArticleItem = (props) => {
             <div style={{ display: 'inline-flex', width: '60%', justifyContent: 'space-evenly' }}>
               <RateUp onClick={like}>
                 <img
-                  src="../img/discussion-thumbs-up.png"
+                  src={`${s3img}discussion-thumbs-up.png`}
                   alt=""
                   style={rateUpStyle}
                 />
@@ -193,7 +195,7 @@ const ArticleItem = (props) => {
               </RateUp>
               <RateDown>
                 <DiscussionThumbsDown
-                  src="../img/discussion-thumbs-up.png"
+                  src={`${s3img}discussion-thumbs-up.png`}
                   alt=""
                   style={rateDownStyle}
                   onClick={dislike}
@@ -203,7 +205,7 @@ const ArticleItem = (props) => {
           </InteractionsRatings>
           <InteractionsComments>
             <img
-              src="../img/blue-bubble.png"
+              src={`${s3img}blue-bubble.png`}
               alt=""
               style={{
                 display: 'inline-flex',
@@ -218,7 +220,7 @@ const ArticleItem = (props) => {
             <DiscussText>Discuss</DiscussText>
           </InteractionsComments>
           <InteractionsShare onClick={toggleShare}>
-            <img src="../img/share-logo.png" alt="" style={{ display: 'inline-flex', height: '3em' }} />
+            <img src={`${s3img}share-logo.png`} alt="" style={{ display: 'inline-flex', height: '3em' }} />
             <ShareText>Share</ShareText>
             {(showShare) ? (
               <ShareLink>
