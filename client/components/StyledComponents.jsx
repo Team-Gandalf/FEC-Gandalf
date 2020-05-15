@@ -1,4 +1,13 @@
-import styles from 'styled-components';
+import styles, { createGlobalStyle, keyframes } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+`;
+
 
 export const EventService = styles.div`
     display: inline-flex;
@@ -9,6 +18,38 @@ export const EventService = styles.div`
     color: ghostwhite;
     border: none;
     box-shadow: -1px 1px 0.3em black;`;
+
+export const MainContainer = styles.div`
+  position: relative;
+  overflow: auto;
+  flex-flow: row;
+  width: 100%;
+  height: 100%;
+`;
+
+export const Thumbnail = styles.div`
+  position: relative;
+  display: flex;
+  height: 70%;
+`;
+
+export const MiniTitle = styles.div`
+  background: #303841;
+  box-sizing: border-box;
+  width: 100%;
+  height: 30%;
+  padding: 3%;
+  font-size: 1rem;
+  text-shadow: 0px 0px 5rem;
+`;
+
+export const MiniViewThumbnail = styles.img`
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+  right: 0%;
+  height: -webkit-fill-available;
+`;
 
 export const AnnouncementService = styles(EventService)`
     margin-left: 0.5rem;`;
@@ -32,6 +73,15 @@ export const ArticleItemArea = styles.div`
   margin: 0 auto;
 `;
 
+export const OverlayFade = keyframes`
+  0.0%{
+      opacity: 0;
+  }
+  100%{
+      opacity: 1;
+  }
+`;
+
 export const OverlayStyle = styles.div`
   background: #14171fd4;
   font-size: 0.5em;
@@ -47,12 +97,14 @@ export const OverlayStyle = styles.div`
   box-sizing: border-box;
   padding: 1rem;
   cursor: pointer;
-  animation: overlayFade 0.5s ease 0s 1 normal none;
+  animation: ${OverlayFade} 0.5s ease 0s 1 normal none;
   font-size: .8rem;
 `;
 
 export const OverlayCategory = styles.span`
   text-transform: uppercase;
+  color: #4d9bec;
+  font-weight: 400;
 `;
 
 export const ArticleItemStyle = styles.div`
@@ -304,6 +356,19 @@ export const Copy = styles.button`
   width: 5em;
   border: none;
   color: white;
+`;
+
+export const DiscussText = styles.span`
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 400;
+  cursor: pointer;
+  height: 50%;
+  text-shadow: 2px 2px 5px #0c0707;
+  padding-right: .5rem;
 `;
 
 // export { EventService, AnnouncementService };

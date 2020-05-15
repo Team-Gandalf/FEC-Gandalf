@@ -19,6 +19,7 @@ import {
   ArticleItemIteractions,
   InteractionsInner,
   InteractionsRatings,
+  DiscussText,
   DiscussionThumbsDown,
   RateDown,
   RateUp,
@@ -183,7 +184,6 @@ const ArticleItem = (props) => {
             <div style={{ display: 'inline-flex', width: '60%', justifyContent: 'space-evenly' }}>
               <RateUp onClick={like}>
                 <img
-                  id="discussion-thumbs-up"
                   src="../img/discussion-thumbs-up.png"
                   alt=""
                   style={rateUpStyle}
@@ -214,7 +214,7 @@ const ArticleItem = (props) => {
             <CommentCount>
               {commentCount}
             </CommentCount>
-            <span id="discuss-text">Discuss</span>
+            <DiscussText>Discuss</DiscussText>
           </InteractionsComments>
           <InteractionsShare onClick={toggleShare}>
             <img src="../img/share-logo.png" alt="" style={{ display: 'inline-flex', height: '3em' }} />
