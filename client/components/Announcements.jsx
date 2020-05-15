@@ -3,6 +3,12 @@
 import React, { useState } from 'react';
 
 import Overlay from './Overlay.jsx';
+import {
+  MainContainer,
+  Thumbnail,
+  MiniTitle,
+  MiniViewThumbnail,
+} from './StyledComponents.jsx';
 
 const Announcements = (props) => {
   const [hover, setHover] = useState(false);
@@ -64,25 +70,22 @@ const Announcements = (props) => {
   }
 
   return (
-    <div
-      id="main-container"
+    <MainContainer
       onMouseOver={renderOverlay}
       onFocus={renderOverlay}
       onMouseEnter={renderOverlay}
       onMouseLeave={unMountOverlay}
     >
-      <div id="thumbnail">
-        <img src={item.thumbnailUrl} alt="" id="mini-view-thumbnail" />
-      </div>
-      <div id="mini-title">
-        <span id="mini-title-text">
-          { item.title }
-        </span>
+      <Thumbnail>
+        <MiniViewThumbnail src={item.thumbnailUrl} alt="" />
+      </Thumbnail>
+      <MiniTitle>
+        { item.title }
         <br />
-        <span className="summary-date">{parseDate(item.postDate)}</span>
-      </div>
+        <span style={{ fontSize: '0.8em', color: 'darkgray' }}>{parseDate(item.postDate)}</span>
+      </MiniTitle>
       { (hover) ? <Overlay item={item} toggleArticles={toggleArticles} /> : null }
-    </div>
+    </MainContainer>
   );
 };
 
