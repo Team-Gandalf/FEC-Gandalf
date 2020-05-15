@@ -57,7 +57,7 @@ export const AnnouncementService = styles(EventService)`
 export const ArticlesWrapper = styles.div`
   background: #0d0f17f7;
   color: white;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
