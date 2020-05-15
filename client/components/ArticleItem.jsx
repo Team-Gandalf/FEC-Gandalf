@@ -5,7 +5,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { ArticleItemStyle, ArticleItemThumbnailContainer, ArticleItemThumbnail } from './StyledComponents.jsx';
+import {
+  ArticleItemStyle,
+  ArticleItemThumbnailContainer,
+  ArticleItemThumbnail,
+  ArticleItemTitle,
+  BlurBackgroundStyle,
+  TitleInfo,
+  TitleInfoCategory,
+  ArticleItemBody,
+} from './StyledComponents.jsx';
 
 const ArticleItem = (props) => {
   const {
@@ -121,31 +130,31 @@ const ArticleItem = (props) => {
       <ArticleItemThumbnailContainer>
         <ArticleItemThumbnail alt="thumbnail" src={announcement.thumbnailUrl} />
       </ArticleItemThumbnailContainer>
-      <div className="article-item-title">
-        <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background-title" />
-        <div className="title-info">
-          <span id="title-info-category">
+      <ArticleItemTitle>
+        <BlurBackgroundStyle alt="blur background" src={announcement.thumbnailUrl} />
+        <TitleInfo>
+          <TitleInfoCategory>
             {announcement.category}
-          </span>
-            &nbsp;by
+          </TitleInfoCategory>
+              &nbsp;by
           {' '}
           { name }
-          &nbsp;
-          <span id="posted">POSTED</span>
-          &nbsp;
+            &nbsp;
+          <span style={{ color: '#e2e2e2' }}>POSTED</span>
+            &nbsp;
           {day}
           ,
           {' '}
           {month}
           {' '}
           {monthDay}
-        </div>
-        <span className="announcement-title">{announcement.title}</span>
-      </div>
-      <div className="article-item-body">
+        </TitleInfo>
+        <span style={{ fontSize: '3em' }}>{announcement.title}</span>
+      </ArticleItemTitle>
+      <ArticleItemBody>
         <img alt="blur background" src={announcement.thumbnailUrl} className="blur-background" id={announcement._id} />
         {announcement.body}
-      </div>
+      </ArticleItemBody>
       <div className="article-item-interactions">
         <div id="interactions-inner">
           <div id="interaction-ratings">
