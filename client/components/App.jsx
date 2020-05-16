@@ -9,7 +9,9 @@ import axios from 'axios';
 import Announcements from './Announcements.jsx';
 import Articles from './Articles.jsx';
 
-import { EventService, AnnouncementService, GlobalStyle } from './StyledComponents.jsx';
+import {
+  EventService, AnnouncementService, GlobalStyle, Heading2,
+} from './StyledComponents.jsx';
 
 const App = () => {
   const [showArticles, setShowArticles] = useState(false);
@@ -90,6 +92,9 @@ const App = () => {
       <>
         <GlobalStyle />
       </>
+      <div>
+        <Heading2>RECENT EVENTS & ANNOUNCEMENTS</Heading2>
+      </div>
       <EventService>
         <Announcements game={game} item={eventItem} toggleArticles={toggleArticles} kind="event" />
       </EventService>
