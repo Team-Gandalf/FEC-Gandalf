@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 const faker = require('faker');
 const db = require('./index.js');
 
@@ -21,7 +22,7 @@ let counter = 1;
 const produceAnnouncements = () => {
   const announcements = [];
   const categories = ['event', 'announcement'];
-  const announcementsCount = Math.floor(Math.random() * 10);
+  const announcementsCount = Math.floor((Math.random() * 10) + 1);
   for (let i = 0; i < announcementsCount; i += 1) {
     const randomIndex = Math.floor(Math.random() * 2);
     const commentCount = Math.floor(Math.random() * 50);
@@ -32,7 +33,8 @@ const produceAnnouncements = () => {
       title: faker.lorem.sentence().slice(0, 50),
       postDate: faker.date.recent(),
       body: faker.lorem.paragraphs().slice(0, 1000),
-      category: (i <= 1) ? filler[i] : categories[randomIndex],
+      // category: (i <= 1) ? filler[i] : categories[randomIndex],
+      category: (i <= 1) ? ((i === 0) ? filler[0] : filler[1]) : categories[randomIndex],
       url: faker.internet.url(),
       thumbnailUrl: thumbnails[Math.floor(Math.random() * thumbnails.length)],
       rateUp,
