@@ -377,4 +377,17 @@ export const CopyText = styles.span`
   display: grid;
 `;
 
-// export { EventService, AnnouncementService };
+export const Heading2 = styles.h2`
+  background-image: url(https://steamstore-a.akamaihd.net/public/images/v6/maincol_gradient_rule.png);
+  background-position: left bottom;
+  background-repeat: no-repeat no-repeat;
+  color: #fff;
+  font-family: "Motiva Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 26px;
+  margin: 0 0 10px;
+  padding: 2px 0 0;
+  text-transform: uppercase;
+`;
