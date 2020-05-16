@@ -12,8 +12,8 @@ export const GlobalStyle = createGlobalStyle`
 export const EventService = styles.div`
     display: inline-flex;
     max-width: 30rem;
-    width: 20rem;
-    height: 18rem;
+    width: 18rem;
+    height: 16rem;
     font-size: 2em;
     color: ghostwhite;
     border: none;

@@ -27,6 +27,7 @@ const App = () => {
   const getRandomGame = () => {
     axios.get('/randomGame')
       .then((res) => {
+        console.log(res.data);
         setGame(res.data);
       })
       .catch((err) => {
