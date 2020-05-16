@@ -126,7 +126,7 @@ export const ArticleItemStyle = styles.div`
   max-height: 40rem;
   max-width: 50rem;
   margin: 0 auto;
-  padding-top: 2rem;
+  padding-top: 5rem;
 `;
 
 export const ArticleItemThumbnailContainer = styles.div`
