@@ -18,10 +18,10 @@ const thumbnails = [
 const filler = { 0: 'event', 1: 'announcement' };
 let counter = 1;
 
-const announcementsCount = Math.floor(Math.random() * 10);
 const produceAnnouncements = () => {
   const announcements = [];
   const categories = ['event', 'announcement'];
+  const announcementsCount = Math.floor(Math.random() * 10);
   for (let i = 0; i < announcementsCount; i += 1) {
     const randomIndex = Math.floor(Math.random() * 2);
     const commentCount = Math.floor(Math.random() * 50);
