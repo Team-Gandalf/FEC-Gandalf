@@ -66,6 +66,7 @@ export const ArticlesWrapper = styles.div`
   margin: 0 auto;
   text-align: center;
   overflow: scroll;
+  padding-top: 5rem;
 `;
 
 export const ArticleItemArea = styles.div`
@@ -126,7 +127,6 @@ export const ArticleItemStyle = styles.div`
   max-height: 40rem;
   max-width: 50rem;
   margin: 0 auto;
-  padding-top: 5rem;
 `;
 
 export const ArticleItemThumbnailContainer = styles.div`
